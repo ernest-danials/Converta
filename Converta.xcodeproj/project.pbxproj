@@ -1,0 +1,1135 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1700E26E29B9FD5C00784C5C /* LibraryCurrencyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700E26D29B9FD5C00784C5C /* LibraryCurrencyDetailView.swift */; };
+		1715356329A9E5A500E2CE9F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715356229A9E5A500E2CE9F /* Storage.swift */; };
+		172AD7BD29D321E5006958DC /* LibraryItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172AD7BC29D321E5006958DC /* LibraryItemDetailView.swift */; };
+		172C7C8C29B4B03E0040A435 /* NewHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C7C8B29B4B03E0040A435 /* NewHomeScreen.swift */; };
+		172C7C8F29B4D5B40040A435 /* CurrencyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C7C8E29B4D5B40040A435 /* CurrencyCard.swift */; };
+		172C7C9129B4DAE40040A435 /* HomeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C7C9029B4DAE40040A435 /* HomeInfoView.swift */; };
+		172FBF0729EA787B0003E94D /* CurrencyCodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172FBF0629EA787B0003E94D /* CurrencyCodeInfoView.swift */; };
+		1730769629C898FA00B7ECB0 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1730769529C898FA00B7ECB0 /* LibraryView.swift */; };
+		1764579C29E4277200B61D2F /* CryptoCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764579B29E4277200B61D2F /* CryptoCurrencyView.swift */; };
+		1764579E29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764579D29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift */; };
+		177620EF29B749AF00996A15 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177620EE29B749AF00996A15 /* PersistenceController.swift */; };
+		177620F229B749EB00996A15 /* Library.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177620F029B749EB00996A15 /* Library.xcdatamodeld */; };
+		177F713329BE1851009AE0D4 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F713229BE1851009AE0D4 /* TipJarView.swift */; };
+		178AB18D29D82149004ACBAC /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 178AB18C29D82149004ACBAC /* ActivityIndicatorView */; };
+		178DDDC929BF6E03003FB05C /* SFSafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DDDC829BF6E03003FB05C /* SFSafariViewWrapper.swift */; };
+		1791B95F299E3A2E00DE2777 /* ErrorOccuredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791B95E299E3A2E00DE2777 /* ErrorOccuredView.swift */; };
+		1791B961299E3D7600DE2777 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791B960299E3D7600DE2777 /* LoadingView.swift */; };
+		17955CEE29C74B8C00748CF3 /* NetworkConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17955CED29C74B8C00748CF3 /* NetworkConnectionManager.swift */; };
+		17955CF729C7521F00748CF3 /* Converta_for_MacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17955CF629C7521F00748CF3 /* Converta_for_MacApp.swift */; };
+		17955CF929C7521F00748CF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17955CF829C7521F00748CF3 /* ContentView.swift */; };
+		17955CFB29C7522000748CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17955CFA29C7522000748CF3 /* Assets.xcassets */; };
+		17955CFE29C7522000748CF3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17955CFD29C7522000748CF3 /* Preview Assets.xcassets */; };
+		1797DC5729C5D35C00F3B85E /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1797DC5629C5D35C00F3B85E /* Image+Ext.swift */; };
+		17A58E4829AA068C002908B1 /* EditFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A58E4729AA068C002908B1 /* EditFavoritesView.swift */; };
+		17AC74E9299D00C100D9866E /* ConvertaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC74E8299D00C100D9866E /* ConvertaApp.swift */; };
+		17AC74EB299D00C100D9866E /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC74EA299D00C100D9866E /* AppTabView.swift */; };
+		17AC74ED299D00C200D9866E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17AC74EC299D00C200D9866E /* Assets.xcassets */; };
+		17AC74F1299D00C200D9866E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17AC74F0299D00C200D9866E /* Preview Assets.xcassets */; };
+		17AC74FF299D017900D9866E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC74FE299D017900D9866E /* ViewModel.swift */; };
+		17AC7501299D018000D9866E /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7500299D018000D9866E /* View+Ext.swift */; };
+		17AC7505299D01AD00D9866E /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7504299D01AD00D9866E /* BannerView.swift */; };
+		17AC750A299D01D600D9866E /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7509299D01D600D9866E /* ScaleButtonStyle.swift */; };
+		17AC750C299D021100D9866E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC750B299D021100D9866E /* Constants.swift */; };
+		17AC750E299D048200D9866E /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC750D299D048200D9866E /* Color+Ext.swift */; };
+		17AC7510299D0B3D00D9866E /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC750F299D0B3D00D9866E /* HapticManager.swift */; };
+		17AC7514299D0BCA00D9866E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7513299D0BCA00D9866E /* HomeView.swift */; };
+		17AC7517299D13B100D9866E /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7516299D13B100D9866E /* Schema.swift */; };
+		17AC7519299D140C00D9866E /* CurrencyAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7518299D140C00D9866E /* CurrencyAPIManager.swift */; };
+		17B1ECA629D07353009E755B /* Converta_for_Apple_WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B1ECA529D07353009E755B /* Converta_for_Apple_WatchApp.swift */; };
+		17B1ECA829D07353009E755B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B1ECA729D07353009E755B /* ContentView.swift */; };
+		17B1ECAA29D07354009E755B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17B1ECA929D07354009E755B /* Assets.xcassets */; };
+		17B1ECAD29D07354009E755B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17B1ECAC29D07354009E755B /* Preview Assets.xcassets */; };
+		17B1ECB029D07354009E755B /* Converta for Apple Watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 17B1ECA329D07353009E755B /* Converta for Apple Watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17B1ECB829D073C8009E755B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715356229A9E5A500E2CE9F /* Storage.swift */; };
+		17B1ECB929D073C8009E755B /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC750F299D0B3D00D9866E /* HapticManager.swift */; };
+		17B1ECBA29D073C8009E755B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC750B299D021100D9866E /* Constants.swift */; };
+		17B1ECBB29D073C8009E755B /* NetworkConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17955CED29C74B8C00748CF3 /* NetworkConnectionManager.swift */; };
+		17B1ECBC29D073C8009E755B /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7509299D01D600D9866E /* ScaleButtonStyle.swift */; };
+		17B1ECBD29D073CB009E755B /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7516299D13B100D9866E /* Schema.swift */; };
+		17B1ECBE29D073CB009E755B /* CurrencyAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7518299D140C00D9866E /* CurrencyAPIManager.swift */; };
+		17B1ECBF29D073D0009E755B /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC750D299D048200D9866E /* Color+Ext.swift */; };
+		17B1ECC029D073D0009E755B /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1797DC5629C5D35C00F3B85E /* Image+Ext.swift */; };
+		17B1ECC129D073D0009E755B /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7500299D018000D9866E /* View+Ext.swift */; };
+		17B1ECC229D073DE009E755B /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177620EE29B749AF00996A15 /* PersistenceController.swift */; };
+		17B1ECC329D073E1009E755B /* Library.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177620F029B749EB00996A15 /* Library.xcdatamodeld */; };
+		17B1ECC429D073E5009E755B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC74FE299D017900D9866E /* ViewModel.swift */; };
+		17B1ECC629D073ED009E755B /* NumberKeypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D31B2F299F3DE000A9AA98 /* NumberKeypad.swift */; };
+		17BDF10429E2D32000E4B6C5 /* HistoricalRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDF10329E2D32000E4B6C5 /* HistoricalRatesView.swift */; };
+		17BDF10629E2DF1100E4B6C5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDF10529E2DF1100E4B6C5 /* Date+Ext.swift */; };
+		17BDF10829E2E8A400E4B6C5 /* EditHistoricalViewBaseCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDF10729E2E8A400E4B6C5 /* EditHistoricalViewBaseCurrencyView.swift */; };
+		17CB743B29C20CE5009C0586 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB743A29C20CE5009C0586 /* OnBoardingView.swift */; };
+		17CED43929C899DC008703CC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CED43829C899DC008703CC /* SettingsView.swift */; };
+		17D31B2E299F383C00A9AA98 /* EditHomeBaseCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D31B2D299F383C00A9AA98 /* EditHomeBaseCurrencyView.swift */; };
+		17D31B30299F3DE000A9AA98 /* NumberKeypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D31B2F299F3DE000A9AA98 /* NumberKeypad.swift */; };
+		17D461DA29C757270008D8F6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC74FE299D017900D9866E /* ViewModel.swift */; };
+		17D461DB29C757360008D8F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC750B299D021100D9866E /* Constants.swift */; };
+		17D461DC29C7573E0008D8F6 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715356229A9E5A500E2CE9F /* Storage.swift */; };
+		17D461DD29C757400008D8F6 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7509299D01D600D9866E /* ScaleButtonStyle.swift */; };
+		17D461DE29C757440008D8F6 /* CurrencyAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7518299D140C00D9866E /* CurrencyAPIManager.swift */; };
+		17D461DF29C757440008D8F6 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7516299D13B100D9866E /* Schema.swift */; };
+		17D461E229C757D60008D8F6 /* BlurWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D461E129C757D60008D8F6 /* BlurWindow.swift */; };
+		17D461E629C758E30008D8F6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D461E529C758E30008D8F6 /* HomeView.swift */; };
+		17D461E929C75A1F0008D8F6 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D461E829C75A1F0008D8F6 /* TabButton.swift */; };
+		17D461EA29C75B550008D8F6 /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1797DC5629C5D35C00F3B85E /* Image+Ext.swift */; };
+		17D461EB29C75B550008D8F6 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC7500299D018000D9866E /* View+Ext.swift */; };
+		17D461EC29C75B550008D8F6 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AC750D299D048200D9866E /* Color+Ext.swift */; };
+		17DFDDC429BC89E700609BC9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DFDDC329BC89E700609BC9 /* SettingsView.swift */; };
+		17FD931629B74C910051F90C /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD931529B74C910051F90C /* LibraryView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		17B1ECAE29D07354009E755B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17AC74DD299D00C100D9866E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17B1ECA229D07353009E755B;
+			remoteInfo = "Converta for Apple Watch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		174A407E29C4433A005684A1 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				17B1ECB029D07354009E755B /* Converta for Apple Watch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1700E26D29B9FD5C00784C5C /* LibraryCurrencyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCurrencyDetailView.swift; sourceTree = "<group>"; };
+		1715356229A9E5A500E2CE9F /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		172AD7BC29D321E5006958DC /* LibraryItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemDetailView.swift; sourceTree = "<group>"; };
+		172C7C8B29B4B03E0040A435 /* NewHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeScreen.swift; sourceTree = "<group>"; };
+		172C7C8E29B4D5B40040A435 /* CurrencyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCard.swift; sourceTree = "<group>"; };
+		172C7C9029B4DAE40040A435 /* HomeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoView.swift; sourceTree = "<group>"; };
+		172FBF0629EA787B0003E94D /* CurrencyCodeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCodeInfoView.swift; sourceTree = "<group>"; };
+		1730769529C898FA00B7ECB0 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		1764579B29E4277200B61D2F /* CryptoCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyView.swift; sourceTree = "<group>"; };
+		1764579D29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCryptoCurrencyViewBaseCurrencyView.swift; sourceTree = "<group>"; };
+		177620EE29B749AF00996A15 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		177620F129B749EB00996A15 /* Library.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Library.xcdatamodel; sourceTree = "<group>"; };
+		177F713229BE1851009AE0D4 /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
+		178DDDC829BF6E03003FB05C /* SFSafariViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariViewWrapper.swift; sourceTree = "<group>"; };
+		1791B95E299E3A2E00DE2777 /* ErrorOccuredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorOccuredView.swift; sourceTree = "<group>"; };
+		1791B960299E3D7600DE2777 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		17955CED29C74B8C00748CF3 /* NetworkConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnectionManager.swift; sourceTree = "<group>"; };
+		17955CF429C7521F00748CF3 /* Converta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Converta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17955CF629C7521F00748CF3 /* Converta_for_MacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converta_for_MacApp.swift; sourceTree = "<group>"; };
+		17955CF829C7521F00748CF3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		17955CFA29C7522000748CF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17955CFD29C7522000748CF3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1797DC5629C5D35C00F3B85E /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
+		17A58E4729AA068C002908B1 /* EditFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFavoritesView.swift; sourceTree = "<group>"; };
+		17AC74E5299D00C100D9866E /* Converta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Converta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17AC74E8299D00C100D9866E /* ConvertaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertaApp.swift; sourceTree = "<group>"; };
+		17AC74EA299D00C100D9866E /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		17AC74EC299D00C200D9866E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17AC74EE299D00C200D9866E /* Converta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Converta.entitlements; sourceTree = "<group>"; };
+		17AC74F0299D00C200D9866E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17AC74FE299D017900D9866E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		17AC7500299D018000D9866E /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		17AC7504299D01AD00D9866E /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		17AC7509299D01D600D9866E /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
+		17AC750B299D021100D9866E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		17AC750D299D048200D9866E /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		17AC750F299D0B3D00D9866E /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		17AC7513299D0BCA00D9866E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		17AC7516299D13B100D9866E /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		17AC7518299D140C00D9866E /* CurrencyAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyAPIManager.swift; sourceTree = "<group>"; };
+		17B1ECA329D07353009E755B /* Converta for Apple Watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Converta for Apple Watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17B1ECA529D07353009E755B /* Converta_for_Apple_WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converta_for_Apple_WatchApp.swift; sourceTree = "<group>"; };
+		17B1ECA729D07353009E755B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		17B1ECA929D07354009E755B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17B1ECAC29D07354009E755B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17B1ECB429D07370009E755B /* Converta for Apple Watch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Converta for Apple Watch Watch App.entitlements"; sourceTree = "<group>"; };
+		17B1ECB529D07378009E755B /* Converta-for-Apple-Watch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Converta-for-Apple-Watch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		17BDF10329E2D32000E4B6C5 /* HistoricalRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRatesView.swift; sourceTree = "<group>"; };
+		17BDF10529E2DF1100E4B6C5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		17BDF10729E2E8A400E4B6C5 /* EditHistoricalViewBaseCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHistoricalViewBaseCurrencyView.swift; sourceTree = "<group>"; };
+		17CB743929C20708009C0586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		17CB743A29C20CE5009C0586 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		17CED43829C899DC008703CC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		17D31B2D299F383C00A9AA98 /* EditHomeBaseCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHomeBaseCurrencyView.swift; sourceTree = "<group>"; };
+		17D31B2F299F3DE000A9AA98 /* NumberKeypad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeypad.swift; sourceTree = "<group>"; };
+		17D461E129C757D60008D8F6 /* BlurWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurWindow.swift; sourceTree = "<group>"; };
+		17D461E529C758E30008D8F6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		17D461E829C75A1F0008D8F6 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		17D461EE29C763180008D8F6 /* Converta_for_Mac.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Converta_for_Mac.entitlements; sourceTree = "<group>"; };
+		17DFDDC329BC89E700609BC9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		17FD931529B74C910051F90C /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17955CF129C7521F00748CF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17AC74E2299D00C100D9866E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178AB18D29D82149004ACBAC /* ActivityIndicatorView in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17B1ECA029D07353009E755B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1715356429A9E5C800E2CE9F /* Custom Protocols & PropertyWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				1715356229A9E5A500E2CE9F /* Storage.swift */,
+			);
+			path = "Custom Protocols & PropertyWrapper";
+			sourceTree = "<group>";
+		};
+		172C7C8D29B4D5AC0040A435 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				172C7C8E29B4D5B40040A435 /* CurrencyCard.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		177620ED29B7498800996A15 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				177620F029B749EB00996A15 /* Library.xcdatamodeld */,
+				177620EE29B749AF00996A15 /* PersistenceController.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		177620F329B74B7400996A15 /* Replaced */ = {
+			isa = PBXGroup;
+			children = (
+				17AC7513299D0BCA00D9866E /* HomeView.swift */,
+			);
+			path = Replaced;
+			sourceTree = "<group>";
+		};
+		177F712F29BE160A009AE0D4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				17AC7504299D01AD00D9866E /* BannerView.swift */,
+				17D31B2F299F3DE000A9AA98 /* NumberKeypad.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		17955CF529C7521F00748CF3 /* Converta for Mac */ = {
+			isa = PBXGroup;
+			children = (
+				17D461D829C7546D0008D8F6 /* Views */,
+				17955CF629C7521F00748CF3 /* Converta_for_MacApp.swift */,
+				17D461EE29C763180008D8F6 /* Converta_for_Mac.entitlements */,
+				17955CFA29C7522000748CF3 /* Assets.xcassets */,
+				17955CFC29C7522000748CF3 /* Preview Content */,
+			);
+			path = "Converta for Mac";
+			sourceTree = "<group>";
+		};
+		17955CFC29C7522000748CF3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				17955CFD29C7522000748CF3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		17AC74DC299D00C100D9866E = {
+			isa = PBXGroup;
+			children = (
+				17AC74E7299D00C100D9866E /* Converta */,
+				17955CF529C7521F00748CF3 /* Converta for Mac */,
+				17B1ECA429D07353009E755B /* Converta for Apple Watch Watch App */,
+				17AC74E6299D00C100D9866E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17AC74E6299D00C100D9866E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17AC74E5299D00C100D9866E /* Converta.app */,
+				17955CF429C7521F00748CF3 /* Converta.app */,
+				17B1ECA329D07353009E755B /* Converta for Apple Watch Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17AC74E7299D00C100D9866E /* Converta */ = {
+			isa = PBXGroup;
+			children = (
+				17CB743929C20708009C0586 /* Info.plist */,
+				17AC74FD299D016C00D9866E /* Other */,
+				17AC74FC299D016700D9866E /* API */,
+				17AC74FB299D016000D9866E /* Extension */,
+				177620ED29B7498800996A15 /* CoreData */,
+				17AC74F9299D015000D9866E /* Model */,
+				17AC74F7299D013400D9866E /* Views */,
+				17AC74E8299D00C100D9866E /* ConvertaApp.swift */,
+				17AC74EC299D00C200D9866E /* Assets.xcassets */,
+				17AC74EE299D00C200D9866E /* Converta.entitlements */,
+				17AC74EF299D00C200D9866E /* Preview Content */,
+			);
+			path = Converta;
+			sourceTree = "<group>";
+		};
+		17AC74EF299D00C200D9866E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				17AC74F0299D00C200D9866E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		17AC74F7299D013400D9866E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				172C7C8D29B4D5AC0040A435 /* Card */,
+				17D31B31299F3DF500A9AA98 /* Banners */,
+				17AC7507299D01BB00D9866E /* CustomView */,
+				177F712F29BE160A009AE0D4 /* Components */,
+				17AC74F8299D013C00D9866E /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		17AC74F8299D013C00D9866E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				17AC74EA299D00C100D9866E /* AppTabView.swift */,
+				172C7C8B29B4B03E0040A435 /* NewHomeScreen.swift */,
+				17FD931529B74C910051F90C /* LibraryView.swift */,
+				1700E26D29B9FD5C00784C5C /* LibraryCurrencyDetailView.swift */,
+				17BDF10329E2D32000E4B6C5 /* HistoricalRatesView.swift */,
+				1764579B29E4277200B61D2F /* CryptoCurrencyView.swift */,
+				17DFDDC329BC89E700609BC9 /* SettingsView.swift */,
+				17A58E4729AA068C002908B1 /* EditFavoritesView.swift */,
+				177F713229BE1851009AE0D4 /* TipJarView.swift */,
+				17CB743A29C20CE5009C0586 /* OnBoardingView.swift */,
+				177620F329B74B7400996A15 /* Replaced */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		17AC74F9299D015000D9866E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17AC74FE299D017900D9866E /* ViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		17AC74FB299D016000D9866E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				17AC7500299D018000D9866E /* View+Ext.swift */,
+				17AC750D299D048200D9866E /* Color+Ext.swift */,
+				1797DC5629C5D35C00F3B85E /* Image+Ext.swift */,
+				17BDF10529E2DF1100E4B6C5 /* Date+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		17AC74FC299D016700D9866E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				17AC7518299D140C00D9866E /* CurrencyAPIManager.swift */,
+				17AC7516299D13B100D9866E /* Schema.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		17AC74FD299D016C00D9866E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				17AC750B299D021100D9866E /* Constants.swift */,
+				17AC750F299D0B3D00D9866E /* HapticManager.swift */,
+				17955CED29C74B8C00748CF3 /* NetworkConnectionManager.swift */,
+				1715356429A9E5C800E2CE9F /* Custom Protocols & PropertyWrapper */,
+				17AC7508299D01CB00D9866E /* Custom Button Styles */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		17AC7507299D01BB00D9866E /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				1791B95E299E3A2E00DE2777 /* ErrorOccuredView.swift */,
+				1791B960299E3D7600DE2777 /* LoadingView.swift */,
+				178DDDC829BF6E03003FB05C /* SFSafariViewWrapper.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		17AC7508299D01CB00D9866E /* Custom Button Styles */ = {
+			isa = PBXGroup;
+			children = (
+				17AC7509299D01D600D9866E /* ScaleButtonStyle.swift */,
+			);
+			path = "Custom Button Styles";
+			sourceTree = "<group>";
+		};
+		17B1ECA429D07353009E755B /* Converta for Apple Watch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				17B1ECB629D07392009E755B /* Views */,
+				17B1ECA529D07353009E755B /* Converta_for_Apple_WatchApp.swift */,
+				17B1ECA929D07354009E755B /* Assets.xcassets */,
+				17B1ECB429D07370009E755B /* Converta for Apple Watch Watch App.entitlements */,
+				17B1ECB529D07378009E755B /* Converta-for-Apple-Watch-Watch-App-Info.plist */,
+				17B1ECAB29D07354009E755B /* Preview Content */,
+			);
+			path = "Converta for Apple Watch Watch App";
+			sourceTree = "<group>";
+		};
+		17B1ECAB29D07354009E755B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				17B1ECAC29D07354009E755B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		17B1ECB629D07392009E755B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17B1ECB729D07398009E755B /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		17B1ECB729D07398009E755B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				17B1ECA729D07353009E755B /* ContentView.swift */,
+				172AD7BC29D321E5006958DC /* LibraryItemDetailView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		17D31B31299F3DF500A9AA98 /* Banners */ = {
+			isa = PBXGroup;
+			children = (
+				17D31B2D299F383C00A9AA98 /* EditHomeBaseCurrencyView.swift */,
+				17BDF10729E2E8A400E4B6C5 /* EditHistoricalViewBaseCurrencyView.swift */,
+				1764579D29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift */,
+				172C7C9029B4DAE40040A435 /* HomeInfoView.swift */,
+				172FBF0629EA787B0003E94D /* CurrencyCodeInfoView.swift */,
+			);
+			path = Banners;
+			sourceTree = "<group>";
+		};
+		17D461D829C7546D0008D8F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17D461E729C75A150008D8F6 /* Buttons */,
+				17D461E029C757BC0008D8F6 /* CustomView */,
+				17D461D929C754710008D8F6 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		17D461D929C754710008D8F6 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				17955CF829C7521F00748CF3 /* ContentView.swift */,
+				17D461E529C758E30008D8F6 /* HomeView.swift */,
+				1730769529C898FA00B7ECB0 /* LibraryView.swift */,
+				17CED43829C899DC008703CC /* SettingsView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		17D461E029C757BC0008D8F6 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				17D461E129C757D60008D8F6 /* BlurWindow.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		17D461E729C75A150008D8F6 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				17D461E829C75A1F0008D8F6 /* TabButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17955CF329C7521F00748CF3 /* Converta for Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17955D0029C7522000748CF3 /* Build configuration list for PBXNativeTarget "Converta for Mac" */;
+			buildPhases = (
+				17955CF029C7521F00748CF3 /* Sources */,
+				17955CF129C7521F00748CF3 /* Frameworks */,
+				17955CF229C7521F00748CF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Converta for Mac";
+			productName = "Converta for Mac";
+			productReference = 17955CF429C7521F00748CF3 /* Converta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		17AC74E4299D00C100D9866E /* Converta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17AC74F4299D00C200D9866E /* Build configuration list for PBXNativeTarget "Converta" */;
+			buildPhases = (
+				17AC74E1299D00C100D9866E /* Sources */,
+				17AC74E2299D00C100D9866E /* Frameworks */,
+				17AC74E3299D00C100D9866E /* Resources */,
+				174A407E29C4433A005684A1 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				17B1ECAF29D07354009E755B /* PBXTargetDependency */,
+			);
+			name = Converta;
+			packageProductDependencies = (
+				178AB18C29D82149004ACBAC /* ActivityIndicatorView */,
+			);
+			productName = Converta;
+			productReference = 17AC74E5299D00C100D9866E /* Converta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		17B1ECA229D07353009E755B /* Converta for Apple Watch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17B1ECB329D07354009E755B /* Build configuration list for PBXNativeTarget "Converta for Apple Watch Watch App" */;
+			buildPhases = (
+				17B1EC9F29D07353009E755B /* Sources */,
+				17B1ECA029D07353009E755B /* Frameworks */,
+				17B1ECA129D07353009E755B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Converta for Apple Watch Watch App";
+			productName = "Converta for Apple Watch Watch App";
+			productReference = 17B1ECA329D07353009E755B /* Converta for Apple Watch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17AC74DD299D00C100D9866E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					17955CF329C7521F00748CF3 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					17AC74E4299D00C100D9866E = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					17B1ECA229D07353009E755B = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 17AC74E0299D00C100D9866E /* Build configuration list for PBXProject "Converta" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 17AC74DC299D00C100D9866E;
+			packageReferences = (
+				178AB18B29D82149004ACBAC /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+			);
+			productRefGroup = 17AC74E6299D00C100D9866E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17AC74E4299D00C100D9866E /* Converta */,
+				17955CF329C7521F00748CF3 /* Converta for Mac */,
+				17B1ECA229D07353009E755B /* Converta for Apple Watch Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17955CF229C7521F00748CF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17955CFE29C7522000748CF3 /* Preview Assets.xcassets in Resources */,
+				17955CFB29C7522000748CF3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17AC74E3299D00C100D9866E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17AC74F1299D00C200D9866E /* Preview Assets.xcassets in Resources */,
+				17AC74ED299D00C200D9866E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17B1ECA129D07353009E755B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17B1ECAD29D07354009E755B /* Preview Assets.xcassets in Resources */,
+				17B1ECAA29D07354009E755B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17955CF029C7521F00748CF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17D461DF29C757440008D8F6 /* Schema.swift in Sources */,
+				17D461EC29C75B550008D8F6 /* Color+Ext.swift in Sources */,
+				17D461E229C757D60008D8F6 /* BlurWindow.swift in Sources */,
+				17D461DD29C757400008D8F6 /* ScaleButtonStyle.swift in Sources */,
+				17D461E629C758E30008D8F6 /* HomeView.swift in Sources */,
+				17955CF929C7521F00748CF3 /* ContentView.swift in Sources */,
+				17D461EA29C75B550008D8F6 /* Image+Ext.swift in Sources */,
+				17D461DE29C757440008D8F6 /* CurrencyAPIManager.swift in Sources */,
+				17D461DA29C757270008D8F6 /* ViewModel.swift in Sources */,
+				17CED43929C899DC008703CC /* SettingsView.swift in Sources */,
+				17955CF729C7521F00748CF3 /* Converta_for_MacApp.swift in Sources */,
+				17D461E929C75A1F0008D8F6 /* TabButton.swift in Sources */,
+				17D461DB29C757360008D8F6 /* Constants.swift in Sources */,
+				17D461EB29C75B550008D8F6 /* View+Ext.swift in Sources */,
+				1730769629C898FA00B7ECB0 /* LibraryView.swift in Sources */,
+				17D461DC29C7573E0008D8F6 /* Storage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17AC74E1299D00C100D9866E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17AC7505299D01AD00D9866E /* BannerView.swift in Sources */,
+				17AC7501299D018000D9866E /* View+Ext.swift in Sources */,
+				177620EF29B749AF00996A15 /* PersistenceController.swift in Sources */,
+				172C7C9129B4DAE40040A435 /* HomeInfoView.swift in Sources */,
+				17FD931629B74C910051F90C /* LibraryView.swift in Sources */,
+				1797DC5729C5D35C00F3B85E /* Image+Ext.swift in Sources */,
+				17BDF10829E2E8A400E4B6C5 /* EditHistoricalViewBaseCurrencyView.swift in Sources */,
+				172C7C8F29B4D5B40040A435 /* CurrencyCard.swift in Sources */,
+				1791B95F299E3A2E00DE2777 /* ErrorOccuredView.swift in Sources */,
+				177620F229B749EB00996A15 /* Library.xcdatamodeld in Sources */,
+				17BDF10429E2D32000E4B6C5 /* HistoricalRatesView.swift in Sources */,
+				17AC7510299D0B3D00D9866E /* HapticManager.swift in Sources */,
+				178DDDC929BF6E03003FB05C /* SFSafariViewWrapper.swift in Sources */,
+				17AC7519299D140C00D9866E /* CurrencyAPIManager.swift in Sources */,
+				1715356329A9E5A500E2CE9F /* Storage.swift in Sources */,
+				17A58E4829AA068C002908B1 /* EditFavoritesView.swift in Sources */,
+				17D31B30299F3DE000A9AA98 /* NumberKeypad.swift in Sources */,
+				17CB743B29C20CE5009C0586 /* OnBoardingView.swift in Sources */,
+				1791B961299E3D7600DE2777 /* LoadingView.swift in Sources */,
+				17AC7514299D0BCA00D9866E /* HomeView.swift in Sources */,
+				17AC7517299D13B100D9866E /* Schema.swift in Sources */,
+				1700E26E29B9FD5C00784C5C /* LibraryCurrencyDetailView.swift in Sources */,
+				177F713329BE1851009AE0D4 /* TipJarView.swift in Sources */,
+				17AC74EB299D00C100D9866E /* AppTabView.swift in Sources */,
+				17D31B2E299F383C00A9AA98 /* EditHomeBaseCurrencyView.swift in Sources */,
+				17AC74FF299D017900D9866E /* ViewModel.swift in Sources */,
+				1764579E29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift in Sources */,
+				17AC750C299D021100D9866E /* Constants.swift in Sources */,
+				17AC750E299D048200D9866E /* Color+Ext.swift in Sources */,
+				17AC750A299D01D600D9866E /* ScaleButtonStyle.swift in Sources */,
+				17AC74E9299D00C100D9866E /* ConvertaApp.swift in Sources */,
+				17BDF10629E2DF1100E4B6C5 /* Date+Ext.swift in Sources */,
+				1764579C29E4277200B61D2F /* CryptoCurrencyView.swift in Sources */,
+				172FBF0729EA787B0003E94D /* CurrencyCodeInfoView.swift in Sources */,
+				172C7C8C29B4B03E0040A435 /* NewHomeScreen.swift in Sources */,
+				17955CEE29C74B8C00748CF3 /* NetworkConnectionManager.swift in Sources */,
+				17DFDDC429BC89E700609BC9 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17B1EC9F29D07353009E755B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17B1ECC629D073ED009E755B /* NumberKeypad.swift in Sources */,
+				17B1ECBD29D073CB009E755B /* Schema.swift in Sources */,
+				17B1ECC329D073E1009E755B /* Library.xcdatamodeld in Sources */,
+				17B1ECBB29D073C8009E755B /* NetworkConnectionManager.swift in Sources */,
+				17B1ECBA29D073C8009E755B /* Constants.swift in Sources */,
+				17B1ECBE29D073CB009E755B /* CurrencyAPIManager.swift in Sources */,
+				17B1ECA829D07353009E755B /* ContentView.swift in Sources */,
+				172AD7BD29D321E5006958DC /* LibraryItemDetailView.swift in Sources */,
+				17B1ECBC29D073C8009E755B /* ScaleButtonStyle.swift in Sources */,
+				17B1ECA629D07353009E755B /* Converta_for_Apple_WatchApp.swift in Sources */,
+				17B1ECB929D073C8009E755B /* HapticManager.swift in Sources */,
+				17B1ECC129D073D0009E755B /* View+Ext.swift in Sources */,
+				17B1ECC429D073E5009E755B /* ViewModel.swift in Sources */,
+				17B1ECB829D073C8009E755B /* Storage.swift in Sources */,
+				17B1ECC229D073DE009E755B /* PersistenceController.swift in Sources */,
+				17B1ECC029D073D0009E755B /* Image+Ext.swift in Sources */,
+				17B1ECBF29D073D0009E755B /* Color+Ext.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		17B1ECAF29D07354009E755B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 17B1ECA229D07353009E755B /* Converta for Apple Watch Watch App */;
+			targetProxy = 17B1ECAE29D07354009E755B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		17955D0129C7522000748CF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "/Users/ernest/Desktop/Converta/Converta/Converta for Mac/Converta_for_Mac.entitlements";
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
+				CODE_SIGN_ENTITLEMENTS = "Converta for Mac/Converta_for_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Converta for Mac/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Converta;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ernest.Converta-for-Mac";
+				PRODUCT_NAME = Converta;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		17955D0229C7522000748CF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "/Users/ernest/Desktop/Converta/Converta/Converta for Mac/Converta_for_Mac.entitlements";
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
+				CODE_SIGN_ENTITLEMENTS = "Converta for Mac/Converta_for_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Converta for Mac/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Converta;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ernest.Converta-for-Mac";
+				PRODUCT_NAME = Converta;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		17AC74F2299D00C200D9866E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		17AC74F3299D00C200D9866E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		17AC74F5299D00C200D9866E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-icon";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Converta/Converta.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "Converta/Preview\\ Content";
+				DEVELOPMENT_TEAM = VNASSVSN5W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Converta/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Converta;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.3.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ernestdanials.Converta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17AC74F6299D00C200D9866E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-icon";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Converta/Converta.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "Converta/Preview\\ Content";
+				DEVELOPMENT_TEAM = VNASSVSN5W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Converta/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Converta;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.3.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ernestdanials.Converta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		17B1ECB129D07354009E755B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Converta for Apple Watch Watch App/Converta for Apple Watch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Converta for Apple Watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = VNASSVSN5W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Converta-for-Apple-Watch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Converta;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.ernestdanials.Converta;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ernestdanials.Converta.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		17B1ECB229D07354009E755B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Converta for Apple Watch Watch App/Converta for Apple Watch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Converta for Apple Watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = VNASSVSN5W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Converta-for-Apple-Watch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Converta;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.ernestdanials.Converta;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ernestdanials.Converta.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17955D0029C7522000748CF3 /* Build configuration list for PBXNativeTarget "Converta for Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17955D0129C7522000748CF3 /* Debug */,
+				17955D0229C7522000748CF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17AC74E0299D00C100D9866E /* Build configuration list for PBXProject "Converta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17AC74F2299D00C200D9866E /* Debug */,
+				17AC74F3299D00C200D9866E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17AC74F4299D00C200D9866E /* Build configuration list for PBXNativeTarget "Converta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17AC74F5299D00C200D9866E /* Debug */,
+				17AC74F6299D00C200D9866E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17B1ECB329D07354009E755B /* Build configuration list for PBXNativeTarget "Converta for Apple Watch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17B1ECB129D07354009E755B /* Debug */,
+				17B1ECB229D07354009E755B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		178AB18B29D82149004ACBAC /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		178AB18C29D82149004ACBAC /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 178AB18B29D82149004ACBAC /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		177620F029B749EB00996A15 /* Library.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				177620F129B749EB00996A15 /* Library.xcdatamodel */,
+			);
+			currentVersion = 177620F129B749EB00996A15 /* Library.xcdatamodel */;
+			path = Library.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 17AC74DD299D00C100D9866E /* Project object */;
+}

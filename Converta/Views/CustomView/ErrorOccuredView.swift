@@ -26,11 +26,13 @@ struct ErrorOccuredView: View {
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
             
-            Text("Error: " + (viewModel.currentError.isEmpty ? "Warning - the error is nil." : viewModel.currentError))
-                .customFont(size: 15)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.bottom)
+            if !viewModel.currentError.isEmpty {
+                Text("Error: " + (viewModel.currentError.isEmpty ? "Warning - the error is nil." : viewModel.currentError))
+                    .customFont(size: 15)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom)
+            }
             
             VStack {
                 HStack(spacing: 14) {

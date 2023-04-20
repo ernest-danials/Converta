@@ -741,12 +741,22 @@ struct SupportView: View {
                 .alignView(to: .leading)
                 .padding(.horizontal)
             
+            Link(destination: URL(string: "https://ernestdanials.notion.site/Converta-Support-4ee2122356214a66bb031ae68878e085")!) {
+                Label("Visit Support Website", systemImage: "arrow.up.right.square")
+                    .customFont(size: 20, weight: .semibold)
+                    .foregroundColor(.brandPurple3)
+                    .alignView(to: .center)
+                    .padding()
+                    .background(Material.ultraThin)
+                    .cornerRadius(15)
+            }.scaleButtonStyle().padding(.horizontal)
+            
             VStack(alignment: .leading) {
                 Divider()
                     .padding([.horizontal, .top])
                 
                 Text("Contact Us")
-                    .customFont(size: 18, weight: .semibold)
+                    .customFont(size: 20, weight: .semibold)
                     .padding(.horizontal)
                 
                 VStack {
@@ -760,7 +770,7 @@ struct SupportView: View {
                                     .frame(width: 50, height: 50)
                                     .foregroundColor(.brandPurple3)
                                 
-                                Text("DM us on \nInstagram")
+                                Text("Give us a DM on \nInstagram")
                                     .customFont(size: 18, weight: .semibold)
                                     .foregroundColor(.primary)
                                     .multilineTextAlignment(.center)
@@ -771,7 +781,7 @@ struct SupportView: View {
                                     .foregroundColor(.secondary)
                                     .offset(y: 10)
                             }.alignView(to: .center).frame(height: 120).padding().padding(.vertical).background(Material.ultraThin).cornerRadius(15).padding(.leading)
-                        }
+                        }.scaleButtonStyle()
                         
                         Link(destination: URL(string: "https://twitter.com/Converta_app")!) {
                             VStack {
@@ -793,8 +803,18 @@ struct SupportView: View {
                                     .foregroundColor(.secondary)
                                     .offset(y: 10)
                             }.alignView(to: .center).frame(height: 120).padding().padding(.vertical).background(Material.ultraThin).cornerRadius(15).padding(.trailing)
-                        }
+                        }.scaleButtonStyle()
                     }
+                    
+                    Link(destination: URL(string: "mailto:report.converta@gmail.com")!) {
+                        Label("Email us", systemImage: "envelope.fill")
+                            .customFont(size: 20, weight: .semibold)
+                            .foregroundColor(.brandPurple3)
+                            .alignView(to: .center)
+                            .padding()
+                            .background(Material.ultraThin)
+                            .cornerRadius(15)
+                    }.scaleButtonStyle().padding(.horizontal)
                 }
             }
             
@@ -803,7 +823,7 @@ struct SupportView: View {
                     .padding([.horizontal, .top])
                 
                 Text("Frequently Asked Questions")
-                    .customFont(size: 18, weight: .semibold)
+                    .customFont(size: 20, weight: .semibold)
                     .padding(.horizontal)
                 
                 VStack(alignment: .leading) {
@@ -811,9 +831,9 @@ struct SupportView: View {
                     
                     frequentQuestionCard(question: "I can't find a currency I want to use.", answer: "Converta supports \(CurrencyCode.allCases.count) currencies. If you can't find the currency you want, it may not be supported.")
                     
-                    frequentQuestionCard(question: "What's the source of the currency informations?", answer: "Converta uses \"CurrencyAPI\" as the data provider.")
+                    frequentQuestionCard(question: "What's the source of the currency information?", answer: "Converta uses \"CurrencyAPI\" as the data provider.")
                     
-                    frequentQuestionCard(question: "On Historical, some of the converted value appear as zero.", answer: "Some of the currencies may not have any data on some period of time. If the converted value appear as zero, the currency may not have any data at that time.")
+                    frequentQuestionCard(question: "On Historical, some of the converted values appear as zero.", answer: "Some of the currencies may not have any data on some period of time. If the converted value appears as zero, the currency may not have any data of that time.")
                 }.padding(.horizontal)
             }.padding(.bottom)
         }

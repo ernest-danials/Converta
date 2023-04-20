@@ -16,7 +16,7 @@ struct HomeInfoView: View {
                 .scaledToFill()
                 .frame(width: 200, height: 80)
             
-            Text("Welcome to Converta.")
+            Text("Welcome to Converta")
                 .customFont(size: 20, weight: .semibold)
                 .padding(.top)
             

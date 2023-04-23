@@ -85,7 +85,7 @@ struct NewHomeScreen: View {
             Divider().padding(.horizontal).padding(.horizontal, 5)
             
             HStack {
-                Text("Your Favorites")
+                Text("Your Favourites")
                     .customFont(size: 23, weight: .bold)
                 
                 Spacer()
@@ -142,7 +142,7 @@ struct NewHomeScreen: View {
                         .frame(width: 50, height: 50)
                         .foregroundColor(.secondary)
                     
-                    Text("There isn't any available favorite currencies.")
+                    Text("There isn't any available favourite currencies.")
                         .customFont(size: 20, weight: .semibold)
                         .multilineTextAlignment(.center)
                         .foregroundColor(.secondary)
@@ -160,7 +160,7 @@ struct NewHomeScreen: View {
                             HapticManager.shared.impact(style: .soft)
                         }
                     } label: {
-                        Label("Add Favorite Currencies", systemImage: "plus")
+                        Label("Add Favourite Currencies", systemImage: "plus")
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                             .padding()

@@ -83,7 +83,7 @@ struct OnBoardingView: View {
         ScrollView(showsIndicators: false) {
             VStack {
                 VStack(alignment: .leading) {
-                    Text("Also, you can select favorite currencies")
+                    Text("Also, you can select favourite currencies")
                         .customFont(size: 35, weight: .heavy)
                     
                     Text("They are pinned at various locations within the app.")

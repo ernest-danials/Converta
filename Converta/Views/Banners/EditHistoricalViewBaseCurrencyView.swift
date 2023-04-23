@@ -212,7 +212,7 @@ struct EditHistoricalViewBaseCurrencyView: View {
                     
                     if searchText.isEmpty && !viewModel.favoriteCurrencies.isEmpty {
                         HStack {
-                            Text("Your Favorite Currencies")
+                            Text("Your Favourite Currencies")
                                 .customFont(size: 20, weight: .semibold)
 
                             Spacer()

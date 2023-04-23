@@ -318,7 +318,7 @@ struct selectBaseCurrencyView: View {
             }
             
             if !viewModel.favoriteCurrencies.isEmpty && baseCurrencySearchText.isEmpty {
-                Text("Your Favorite Currencies")
+                Text("Your Favourite Currencies")
                     .customFont(size: 20, weight: .semibold)
                     .alignView(to: .leading)
                     .padding(.horizontal)
@@ -450,7 +450,7 @@ struct selectDestinationCurrencyView: View {
             }
             
             if !viewModel.favoriteCurrencies.isEmpty && destinationCurrencySearchText.isEmpty {
-                Text("Your Favorite Currencies")
+                Text("Your Favourite Currencies")
                     .customFont(size: 20, weight: .semibold)
                     .alignView(to: .leading)
                     .padding(.horizontal)

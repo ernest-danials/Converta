@@ -27,7 +27,7 @@ struct EditFavoritesView: View {
                 Section {
                     if viewModel.favoriteCurrencies.isEmpty {
                         VStack(alignment: .leading) {
-                            Text("You don't have any favorite currencies.")
+                            Text("You don't have any favourite currencies.")
                         }
                     }
                     
@@ -63,9 +63,9 @@ struct EditFavoritesView: View {
                         }
                     }
                 } header: {
-                    Text("Favorites")
+                    Text("Favourites")
                 } footer: {
-                    if viewModel.favoriteCurrencies.isEmpty { Label("Unlike your Library, your favorite currencies do not sync with your iCloud.", systemImage: "info.circle") }
+                    if viewModel.favoriteCurrencies.isEmpty { Label("Unlike your Library, your favourite currencies do not sync with your iCloud.", systemImage: "info.circle") }
                 }
                 
                 Section("Do Not Include") {
@@ -164,7 +164,7 @@ struct EditFavoritesView: View {
                 }
             }
             .scrollDismissesKeyboard(.immediately)
-            .navigationTitle("Edit Favorites")
+            .navigationTitle("Edit Favourites")
             .toolbar {
                 if needToolbar {
                     Button("Done") {

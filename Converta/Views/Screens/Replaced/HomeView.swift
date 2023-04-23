@@ -109,7 +109,7 @@ struct HomeView: View {
     var favoritesView: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Your Favorites")
+                Text("Your Favourites")
                     .customFont(size: 20, weight: .bold, design: .rounded)
                     .foregroundColor(.brandWhite)
                 
@@ -126,7 +126,7 @@ struct HomeView: View {
             TabView {
                 if viewModel.favoriteCurrencies.isEmpty {
                     VStack {
-                        Text("You don't have favorite currencies yet.")
+                        Text("You don't have favourite currencies yet.")
                             .customFont(size: 20, weight: .semibold, design: .rounded)
                             .padding()
                             .multilineTextAlignment(.center)

@@ -18,7 +18,7 @@ struct SettingsView: View {
                         EditFavoritesView(searchTextFieldColor: Color(.systemGray5), needToolbar: false, showHelpButton: true)
                             .onAppear { HapticManager.shared.impact(style: .soft) }
                     } label: {
-                        listRow(text: "Edit Favorite Currencies", imageName: "checklist")
+                        listRow(text: "Edit Favourite Currencies", imageName: "checklist")
                     }
                     
                     Button {

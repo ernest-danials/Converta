@@ -56,13 +56,6 @@ struct SettingsView: View {
                     } label: {
                         listRow(text: "About the Developer", imageName: "person.crop.circle.fill")
                     }
-                    
-                    NavigationLink {
-                        TipJarView()
-                            .onAppear { HapticManager.shared.impact(style: .soft) }
-                    } label: {
-                        listRow(text: "Tip Jar", imageName: "archivebox.fill", backgroundColor: .brown, iconColor: .white)
-                    }
                 }
                 
                 Section {

@@ -94,7 +94,6 @@ final class CurrencyAPIManager {
             
             do {
                 let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
                 let decodedResponse = try decoder.decode(CurrencyAPIResponse_Currencies.self, from: data)
                 completed(.success(decodedResponse))
             } catch {

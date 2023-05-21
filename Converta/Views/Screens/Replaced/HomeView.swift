@@ -81,12 +81,12 @@ struct HomeView: View {
                         .customFont(size: 50, weight: .bold, design: .rounded)
                     
                     HStack(spacing: 5) {
-                        let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.decimalDigits
+                        let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.decimalDigits
                         
                         Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", viewModel.baseAmount))
                             .customFont(size: 23, weight: .bold, design: .rounded)
                         
-                        Text(viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.code ?? "")
+                        Text(viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.code ?? "")
                             .customFont(size: 23, weight: .bold, design: .rounded)
                     }.foregroundColor(.primary)
                 }
@@ -148,10 +148,10 @@ struct HomeView: View {
                                 .customFont(size: 19, weight: .semibold)
                                 .foregroundColor(.secondary)
                             
-                            Text(countryFlag(countryCode: String(viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]?.code.dropLast(1) ?? "US")))
+                            Text(countryFlag(countryCode: String(viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]??.code.dropLast(1) ?? "US")))
                                 .customFont(size: 30, weight: .bold, design: .rounded)
                             
-                            Text(viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]?.name ?? "Loading Data...")
+                            Text(viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]??.name ?? "Loading Data...")
                                 .customFont(size: 19, weight: .semibold)
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.5)
@@ -160,7 +160,7 @@ struct HomeView: View {
                         Divider().padding(.horizontal)
                         
                         HStack(spacing: 4) {
-                            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.decimalDigits
+                            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.decimalDigits
                             
                             Text(countryFlag(countryCode: String(viewModel.baseCurrency?.rawValue.dropLast(1) ?? "US")))
                                 .customFont(size: 35, weight: .bold, design: .rounded)
@@ -180,10 +180,10 @@ struct HomeView: View {
                                 .foregroundColor(.secondary)
                             
                             HStack(spacing: 5) {
-                                let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]?.decimalDigits
+                                let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]??.decimalDigits
                                 let currencyValue = (viewModel.currentAPIResponse_Latest?.data[code?.rawValue ?? "USD"]?.value ?? 1.00)
                                 
-                                Text(countryFlag(countryCode: String(viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]?.code.dropLast(1) ?? "US")))
+                                Text(countryFlag(countryCode: String(viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]??.code.dropLast(1) ?? "US")))
                                     .customFont(size: 40, weight: .bold, design: .rounded)
                                 
                                 Text(String(format: "%.\(destinationCurrencyDecimalDigit ?? 2)f", (viewModel.baseAmount * CGFloat(currencyValue))))
@@ -195,7 +195,7 @@ struct HomeView: View {
                         }.alignView(to: .leading).padding(.horizontal)
                         
                         let currencyValue = (viewModel.currentAPIResponse_Latest?.data[code?.rawValue ?? "USD"]?.value ?? 1.00)
-                        let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]?.decimalDigits
+                        let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]??.decimalDigits
                         
                         if (viewModel.baseAmount * CGFloat(currencyValue)).rounded(toPlaces: destinationCurrencyDecimalDigit ?? 2) < 0.01 {
                             Label("The converted value can be a zero if the amount before conversion is too small.", systemImage: "info.circle")
@@ -271,13 +271,13 @@ struct HomeView: View {
                 }
                 
                 ForEach(data.filter { $0.rawValue.hasPrefix(searchText.uppercased()) }, id: \.self) { code in
-                    let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.decimalDigits
-                    let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code.rawValue]?.decimalDigits
+                    let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.decimalDigits
+                    let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code.rawValue]??.decimalDigits
                     let currencyValue = (viewModel.currentAPIResponse_Latest?.data[code.rawValue]?.value ?? 1.00)
                     let baseCurrencyCode = viewModel.baseCurrency?.rawValue
-                    let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[baseCurrencyCode ?? "USD"]?.name
-                    let baseCurrencyNamePlural = viewModel.currentAPIResponse_Currencies?.data[baseCurrencyCode ?? "USD"]?.namePlural
-                    let destinationCurrencyCountryCode = viewModel.currentAPIResponse_Currencies?.data[code.rawValue]?.code
+                    let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[baseCurrencyCode ?? "USD"]??.name
+                    let baseCurrencyNamePlural = viewModel.currentAPIResponse_Currencies?.data[baseCurrencyCode ?? "USD"]??.namePlural
+                    let destinationCurrencyCountryCode = viewModel.currentAPIResponse_Currencies?.data[code.rawValue]??.code
                     
                     VStack {
                         HStack(spacing: 5) {

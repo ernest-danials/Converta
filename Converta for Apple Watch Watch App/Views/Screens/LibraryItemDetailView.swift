@@ -67,7 +67,7 @@ struct LibraryItemDetailView: View {
             
             let result = number as? CGFloat ?? 1.00
             
-            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[self.baseCurrencyCode.rawValue]?.decimalDigits
+            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[self.baseCurrencyCode.rawValue]??.decimalDigits
             print("\(result.rounded(toPlaces: currentCurrencyDecimalDigit ?? 2))")
             
             self.baseAmount = result.rounded(toPlaces: currentCurrencyDecimalDigit ?? 2)
@@ -96,7 +96,7 @@ struct LibraryItemDetailView: View {
     
     var convertedView: some View {
         ScrollView {
-            let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[destinationCurrencyCode.rawValue]?.decimalDigits
+            let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[destinationCurrencyCode.rawValue]??.decimalDigits
             let currencyValue = (APIResponse?.data[destinationCurrencyCode.rawValue]?.value ?? 1.00)
             
             Text("Converted To")

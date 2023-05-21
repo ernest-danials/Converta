@@ -112,12 +112,12 @@ struct AppTabView: View {
     
     var currencyDetailView: some View {
         ZStack {
-            let baseCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? ""]?.decimalDigits
-            let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? ""]?.name
+            let baseCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? ""]??.decimalDigits
+            let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? ""]??.name
             let baseCurrencyCode = viewModel.baseCurrency
             let baseAmount = viewModel.baseAmount
-            let selectedCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]?.decimalDigits
-            let selectedCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]?.name
+            let selectedCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]??.decimalDigits
+            let selectedCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]??.name
             let selectedCurrencyValue = (viewModel.currentAPIResponse_Latest?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]?.value ?? 1.00)
             
             VStack {
@@ -182,12 +182,12 @@ struct AppTabView: View {
     
     var historicalCurrencyDetailView: some View {
         ZStack {
-            let baseCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[historicalRatesViewModel.baseCurrency.rawValue]?.decimalDigits
-            let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[historicalRatesViewModel.baseCurrency.rawValue]?.name
+            let baseCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[historicalRatesViewModel.baseCurrency.rawValue]??.decimalDigits
+            let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[historicalRatesViewModel.baseCurrency.rawValue]??.name
             let baseCurrencyCode = historicalRatesViewModel.baseCurrency
             let baseAmount = historicalRatesViewModel.baseAmount
-            let selectedCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]?.decimalDigits
-            let selectedCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]?.name
+            let selectedCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]??.decimalDigits
+            let selectedCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]??.name
             let selectedCurrencyValue = (historicalRatesViewModel.currentAPIResponse?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]?.value ?? 1.00)
             
             VStack {

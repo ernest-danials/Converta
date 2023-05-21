@@ -28,7 +28,7 @@ struct CurrencyCodeInfoView: View {
                                     .customFont(size: 60)
                                 
                                 VStack(alignment: .leading, spacing: 8) {
-                                    Text(currency?.name ?? "Loading...")
+                                    Text(currency??.name ?? "Loading...")
                                         .customFont(size: 20, weight: .medium)
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.4)
@@ -40,7 +40,7 @@ struct CurrencyCodeInfoView: View {
                                             .foregroundColor(.secondary)
                                             .rotationEffect(.degrees(270))
                                         
-                                        Text(currency?.code ?? "Loading")
+                                        Text(currency??.code ?? "Loading")
                                             .customFont(size: 30, weight: .semibold)
                                             .lineLimit(1)
                                             .minimumScaleFactor(0.5)

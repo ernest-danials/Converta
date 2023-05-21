@@ -115,7 +115,7 @@ struct LibraryView: View {
                             Text(countryFlag(countryCode: String(newItemBaseCurrency.rawValue.dropLast())))
                                 .customFont(size: 30)
                             
-                            Text(viewModel.currentAPIResponse_Currencies?.data[newItemBaseCurrency.rawValue]?.name ?? "US Dollar")
+                            Text(viewModel.currentAPIResponse_Currencies?.data[newItemBaseCurrency.rawValue]??.name ?? "US Dollar")
                                 .fontWeight(.semibold)
                         }
                     }.padding(.vertical, 2)
@@ -131,7 +131,7 @@ struct LibraryView: View {
                             Text(countryFlag(countryCode: String(newItemDestinationCurrency.rawValue.dropLast())))
                                 .customFont(size: 30)
                             
-                            Text(viewModel.currentAPIResponse_Currencies?.data[newItemDestinationCurrency.rawValue]?.name ?? "US Dollar")
+                            Text(viewModel.currentAPIResponse_Currencies?.data[newItemDestinationCurrency.rawValue]??.name ?? "US Dollar")
                                 .fontWeight(.semibold)
                         }
                     }.padding(.vertical, 2)
@@ -335,7 +335,7 @@ struct selectBaseCurrencyView: View {
                             Text(countryFlag(countryCode: String(code.dropLast())))
                                 .customFont(size: 40)
                             
-                            Text(viewModel.currentAPIResponse_Currencies?.data[code]?.name ?? "US Dollar")
+                            Text(viewModel.currentAPIResponse_Currencies?.data[code]??.name ?? "US Dollar")
                                 .customFont(size: 20, weight: .semibold)
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.4)
@@ -374,7 +374,7 @@ struct selectBaseCurrencyView: View {
                         Text(countryFlag(countryCode: String(code.rawValue.dropLast())))
                             .customFont(size: 40)
                         
-                        Text(viewModel.currentAPIResponse_Currencies?.data[code.rawValue]?.name ?? "US Dollar")
+                        Text(viewModel.currentAPIResponse_Currencies?.data[code.rawValue]??.name ?? "US Dollar")
                             .customFont(size: 20, weight: .semibold)
                             .lineLimit(1)
                             .minimumScaleFactor(0.4)
@@ -467,7 +467,7 @@ struct selectDestinationCurrencyView: View {
                             Text(countryFlag(countryCode: String(code.dropLast())))
                                 .customFont(size: 40)
                             
-                            Text(viewModel.currentAPIResponse_Currencies?.data[code]?.name ?? "US Dollar")
+                            Text(viewModel.currentAPIResponse_Currencies?.data[code]??.name ?? "US Dollar")
                                 .customFont(size: 20, weight: .semibold)
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.4)
@@ -506,7 +506,7 @@ struct selectDestinationCurrencyView: View {
                         Text(countryFlag(countryCode: String(code.rawValue.dropLast())))
                             .customFont(size: 40)
                         
-                        Text(viewModel.currentAPIResponse_Currencies?.data[code.rawValue]?.name ?? "US Dollar")
+                        Text(viewModel.currentAPIResponse_Currencies?.data[code.rawValue]??.name ?? "US Dollar")
                             .customFont(size: 20, weight: .semibold)
                             .lineLimit(1)
                             .minimumScaleFactor(0.4)

@@ -36,9 +36,9 @@ struct CryptoCurrencyView: View {
                         
                         LazyVStack {
                             ForEach(CryptoCurrency.allCases, id: \.self) { currency in
-                                let cryptoCurrencyName = viewModel.currentAPIResponse_Currencies?.data[currency.rawValue]?.name
+                                let cryptoCurrencyName = viewModel.currentAPIResponse_Currencies?.data[currency.rawValue]??.name
                                 let currencyValue = (subViewModel.currentAPIResponse?.data[currency.rawValue]?.value ?? 1.00)
-                                let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[currency.rawValue]?.decimalDigits
+                                let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[currency.rawValue]??.decimalDigits
                                 
                                 VStack {
                                     HStack(spacing: 10) {
@@ -102,12 +102,12 @@ struct CryptoCurrencyView: View {
                         .customFont(size: 50, weight: .bold, design: .rounded)
                     
                     HStack(spacing: 5) {
-                        let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]?.decimalDigits
+                        let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.decimalDigits
                         
                         Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", subViewModel.baseAmount))
                             .customFont(size: 23, weight: .bold, design: .rounded)
                         
-                        Text(viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]?.code ?? "")
+                        Text(viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.code ?? "")
                             .customFont(size: 23, weight: .bold, design: .rounded)
                     }.foregroundColor(.primary)
                 }
@@ -177,7 +177,7 @@ final class CryptoCurrencyViewModel: ObservableObject {
             
             let result = number as? CGFloat ?? 1.00
             
-            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[self.baseCurrency.rawValue]?.decimalDigits
+            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[self.baseCurrency.rawValue]??.decimalDigits
             
             self.baseAmount = result.rounded(toPlaces: currentCurrencyDecimalDigit ?? 2)
         }

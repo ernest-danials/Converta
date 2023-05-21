@@ -61,7 +61,7 @@ struct EditHistoricalViewBaseCurrencyView: View {
     
     func setUp() {
         withAnimation {
-            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]?.decimalDigits
+            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.decimalDigits
             
             if subViewModel.baseAmount == 1.00 {
                 self.numberValue = ""
@@ -84,7 +84,7 @@ struct EditHistoricalViewBaseCurrencyView: View {
                 toggleCurrentEditStatus()
             } label: {
                 HStack {
-                    let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]?.decimalDigits
+                    let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.decimalDigits
                     
                     Text(countryFlag(countryCode: String(subViewModel.baseCurrency.rawValue.dropLast(1))))
                         .customFont(size: 45)
@@ -115,7 +115,7 @@ struct EditHistoricalViewBaseCurrencyView: View {
     
     var amountEditor: some View {
         VStack {
-            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]?.decimalDigits
+            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.decimalDigits
             
             if currentCurrencyDecimalDigit != 0 {
                 Label("The amount will be rounded to " + "\(currentCurrencyDecimalDigit ?? 2)" + " decimal places.", systemImage: "info.circle")
@@ -237,18 +237,18 @@ struct EditHistoricalViewBaseCurrencyView: View {
                                 }
                             } label: {
                                 HStack {
-                                    Text(countryFlag(countryCode: String(currency?.code.dropLast(1) ?? "US")))
+                                    Text(countryFlag(countryCode: String(currency??.code.dropLast(1) ?? "US")))
                                         .customFont(size: 35)
                                     
                                     if currencyViewStyle == .Name {
-                                        Text(currency?.name ?? "US Dollar")
+                                        Text(currency??.name ?? "US Dollar")
                                             .customFont(size: 28, weight: .semibold, design: .rounded)
                                             .multilineTextAlignment(.leading)
                                             .foregroundColor(.primary)
                                             .lineLimit(1)
                                             .minimumScaleFactor(0.3)
                                     } else {
-                                        Text(currency?.code ?? "USD")
+                                        Text(currency??.code ?? "USD")
                                             .customFont(size: 28, weight: .semibold, design: .rounded)
                                             .foregroundColor(.primary)
                                     }
@@ -286,18 +286,18 @@ struct EditHistoricalViewBaseCurrencyView: View {
                             }
                         } label: {
                             HStack {
-                                Text(countryFlag(countryCode: String(currency?.code.dropLast(1) ?? "US")))
+                                Text(countryFlag(countryCode: String(currency??.code.dropLast(1) ?? "US")))
                                     .customFont(size: 35)
                                 
                                 if currencyViewStyle == .Name {
-                                    Text(currency?.name ?? "US Dollar")
+                                    Text(currency??.name ?? "US Dollar")
                                         .customFont(size: 28, weight: .semibold, design: .rounded)
                                         .multilineTextAlignment(.leading)
                                         .foregroundColor(.primary)
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.3)
                                 } else {
-                                    Text(currency?.code ?? "USD")
+                                    Text(currency??.code ?? "USD")
                                         .customFont(size: 28, weight: .semibold, design: .rounded)
                                         .foregroundColor(.primary)
                                 }

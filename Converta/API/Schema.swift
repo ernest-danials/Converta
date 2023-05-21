@@ -20,7 +20,7 @@ struct CurrencyAPIResponse_Latest: Decodable {
 }
 
 struct CurrencyAPIResponse_Currencies: Decodable {
-    let data: [String: CurrencyData]
+    let data: [String: CurrencyData?]
 }
 
 struct CurrencyAPIResponse_Historical: Decodable {

@@ -55,12 +55,12 @@ struct NewHomeScreen: View {
                         .customFont(size: 50, weight: .bold, design: .rounded)
                     
                     HStack(spacing: 5) {
-                        let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.decimalDigits
+                        let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.decimalDigits
                         
                         Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", viewModel.baseAmount))
                             .customFont(size: 23, weight: .bold, design: .rounded)
                         
-                        Text(viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.code ?? "")
+                        Text(viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.code ?? "")
                             .customFont(size: 23, weight: .bold, design: .rounded)
                     }.foregroundColor(.primary)
                 }
@@ -107,12 +107,12 @@ struct NewHomeScreen: View {
                             .customFont(size: 40, weight: .bold, design: .rounded)
                         
                         HStack(spacing: 5) {
-                            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.decimalDigits
+                            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.decimalDigits
                             
                             Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", viewModel.baseAmount))
                                 .customFont(size: 20, weight: .bold, design: .rounded)
                             
-                            Text(viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.code ?? "")
+                            Text(viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.code ?? "")
                                 .customFont(size: 20, weight: .bold, design: .rounded)
                         }.foregroundColor(.primary)
                     }
@@ -180,8 +180,8 @@ struct NewHomeScreen: View {
             
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 0) {
                 ForEach(viewModel.favoriteCurrencies.filter { $0 != viewModel.baseCurrency?.rawValue }, id: \.self) { code in
-                    let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code]?.decimalDigits
-                    let destinationCurrencyName = viewModel.currentAPIResponse_Currencies?.data[code]?.name
+                    let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code]??.decimalDigits
+                    let destinationCurrencyName = viewModel.currentAPIResponse_Currencies?.data[code]??.name
                     let currencyValue = (viewModel.currentAPIResponse_Latest?.data[code]?.value ?? 1.00)
                     
                     Button {
@@ -262,12 +262,12 @@ struct NewHomeScreen: View {
                             .customFont(size: 40, weight: .bold, design: .rounded)
                         
                         HStack(spacing: 5) {
-                            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.decimalDigits
+                            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.decimalDigits
                             
                             Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", viewModel.baseAmount))
                                 .customFont(size: 20, weight: .bold, design: .rounded)
                             
-                            Text(viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]?.code ?? "")
+                            Text(viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.code ?? "")
                                 .customFont(size: 20, weight: .bold, design: .rounded)
                         }.foregroundColor(.primary)
                     }
@@ -311,8 +311,8 @@ struct NewHomeScreen: View {
             
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 0) {
                 ForEach(data.filter { $0.rawValue.hasPrefix(searchText.uppercased()) }, id: \.self) { code in
-                    let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code.rawValue]?.decimalDigits
-                    let destinationCurrencyName = viewModel.currentAPIResponse_Currencies?.data[code.rawValue]?.name
+                    let destinationCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[code.rawValue]??.decimalDigits
+                    let destinationCurrencyName = viewModel.currentAPIResponse_Currencies?.data[code.rawValue]??.name
                     let currencyValue = (viewModel.currentAPIResponse_Latest?.data[code.rawValue]?.value ?? 1.00)
                     
                     Button {

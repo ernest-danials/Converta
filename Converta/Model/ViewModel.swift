@@ -167,7 +167,7 @@ final class ViewModel: ObservableObject {
             
             let result = number as? CGFloat ?? 1.00
             
-            let currentCurrencyDecimalDigit = self.currentAPIResponse_Currencies?.data[self.baseCurrency?.rawValue ?? "USD"]?.decimalDigits
+            let currentCurrencyDecimalDigit = self.currentAPIResponse_Currencies?.data[self.baseCurrency?.rawValue ?? "USD"]??.decimalDigits
             
             self.baseAmount = result.rounded(toPlaces: currentCurrencyDecimalDigit ?? 2)
         }

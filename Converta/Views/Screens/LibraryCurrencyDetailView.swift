@@ -28,7 +28,7 @@ struct LibraryCurrencyDetailView: View {
     
     var body: some View {
         VStack {
-            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[baseCurrency.rawValue]?.decimalDigits
+            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[baseCurrency.rawValue]??.decimalDigits
             
             ScrollView {
                 VStack {
@@ -36,7 +36,7 @@ struct LibraryCurrencyDetailView: View {
                     
                     VStack {
                         HStack {
-                            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[baseCurrency.rawValue]?.decimalDigits
+                            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[baseCurrency.rawValue]??.decimalDigits
                             
                             Text(countryFlag(countryCode: String(baseCurrency.rawValue.dropLast(1))))
                                 .customFont(size: 45)
@@ -72,7 +72,7 @@ struct LibraryCurrencyDetailView: View {
                         .padding(.bottom, 5)
                     
                     HStack {
-                        let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[destinationCurrency.rawValue]?.decimalDigits
+                        let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[destinationCurrency.rawValue]??.decimalDigits
                         let currencyValue = self.currentAPIResponse_Latest?.data[destinationCurrency.rawValue]?.value
                         
                         Text(countryFlag(countryCode: String(destinationCurrency.rawValue.dropLast(1))))
@@ -145,7 +145,7 @@ struct LibraryCurrencyDetailView: View {
             
             let result = number as? CGFloat ?? 1.00
             
-            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[baseCurrency.rawValue]?.decimalDigits
+            let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[baseCurrency.rawValue]??.decimalDigits
             
             self.baseAmount = result.rounded(toPlaces: currentCurrencyDecimalDigit ?? 2)
         }

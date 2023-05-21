@@ -51,7 +51,7 @@ struct EditFavoritesView: View {
                                 Text(countryFlag(countryCode: String(currencyCode?.rawValue.dropLast() ?? "US")))
                                     .customFont(size: 30)
                                 
-                                Text(viewModel.currentAPIResponse_Currencies?.data[currencyCode?.rawValue ?? "USD"]?.name ?? "Loading...")
+                                Text(viewModel.currentAPIResponse_Currencies?.data[currencyCode?.rawValue ?? "USD"]??.name ?? "Loading...")
                                     .fontWeight(.semibold)
                                     .foregroundColor(.primary)
                                 
@@ -150,7 +150,7 @@ struct EditFavoritesView: View {
                                 Text(countryFlag(countryCode: String(currency.rawValue.dropLast() )))
                                     .customFont(size: 30)
                                 
-                                Text(viewModel.currentAPIResponse_Currencies?.data[currency.rawValue ]?.name ?? "Loading...")
+                                Text(viewModel.currentAPIResponse_Currencies?.data[currency.rawValue]??.name ?? "Loading...")
                                     .fontWeight(.semibold)
                                     .foregroundColor(.primary)
                                 

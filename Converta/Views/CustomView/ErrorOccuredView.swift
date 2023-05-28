@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ErrorOccuredView: View {
     @EnvironmentObject var viewModel: ViewModel
+    @State private var isShowingSupportPage: Bool = false
     var body: some View {
         VStack(spacing: 5) {
             Image(systemName: "wifi.exclamationmark")
@@ -100,9 +101,34 @@ struct ErrorOccuredView: View {
                                 .foregroundColor(.brandPurple3)
                         }
                 }.scaleButtonStyle()
+                
+                Button {
+                    self.isShowingSupportPage = true
+                } label: {
+                    Label("Visit Support", systemImage: "lifepreserver.fill")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.brandPurple3)
+                        .padding()
+                        .background {
+                            RoundedRectangle(cornerRadius: 15)
+                                .foregroundColor(.brandWhite)
+                        }
+                }.scaleButtonStyle()
             }.padding(.bottom)
         }
         .alignView(to: .center).alignViewVertically(to: .center).background(Color.brandPurple4).transition(.opacity)
+        .fullScreenCover(isPresented: $isShowingSupportPage) {
+            NavigationStack {
+                SupportView(showDataLoadingFailTips: true)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            Button("Done") {
+                                self.isShowingSupportPage = false
+                            }.fontWeight(.semibold)
+                        }
+                    }
+            }
+        }
     }
 }
 

@@ -8,7 +8,9 @@
 import SwiftUI
 
 enum TabViewItems: String, CaseIterable {
-    case Home, Library, Settings
+    case Home, Library, Historical
+    case CurrencyCodes = "Currency Codes"
+    case Settings
     
     func getImageName() -> String {
         switch self {
@@ -16,6 +18,10 @@ enum TabViewItems: String, CaseIterable {
             return "house"
         case .Library:
             return "rectangle.stack.badge.person.crop" // "rectangle.stack"
+        case .Historical:
+            return "clock.arrow.circlepath"
+        case .CurrencyCodes:
+            return "dollarsign.circle"
         case .Settings:
             return "gearshape"
         }
@@ -113,8 +119,31 @@ enum AppIcon: String, CaseIterable, Identifiable {
     #endif
 }
 
-enum NSUbiquitousKeyValueStoreKey: String {
-    case gemCount = "gems"
+enum LicenseTexts: String {
+    case ActivityIndicatorView =
+    """
+    MIT License
+
+    Copyright (c) 2020 exyte <info@exyte.com>
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE."
+    """
 }
 
 enum CurrencyCode: String, AppStorageConvertible, CaseIterable {

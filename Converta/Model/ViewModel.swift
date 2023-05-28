@@ -41,8 +41,6 @@ final class ViewModel: ObservableObject {
     @Published var isShowingCurrencyDetailViewOnHistorical: Bool = false
     @Published var selectedCurrencyForDetailOnHistorical: CurrencyCode? = nil
     
-    @Published var isShowingCurrencyCodeInfo: Bool = false
-    
     #if os(macOS)
     @Published var selectedView: TabViewItems = .Home
     

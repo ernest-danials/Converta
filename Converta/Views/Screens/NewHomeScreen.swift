@@ -11,6 +11,7 @@ struct NewHomeScreen: View {
     @EnvironmentObject var viewModel: ViewModel
     @State private var isShowingEditFavoritesView: Bool = false
     @State private var searchText: String = ""
+    let cryptoCurrencyViewModel: CryptoCurrencyViewModel
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -37,7 +38,7 @@ struct NewHomeScreen: View {
                     }.scaleButtonStyle(scaleAmount: 0.9, opacityAmount: 1.0)
                 }
             }
-        }.sheet(isPresented: $isShowingEditFavoritesView) { EditFavoritesView(searchTextFieldColor: Color(.systemGray6), showHelpButton: false) }
+        }.sheet(isPresented: $isShowingEditFavoritesView) { EditFavoritesView(searchTextFieldColor: Color(.systemGray6)) }
     }
     
     var convertingFromView: some View {
@@ -231,16 +232,6 @@ struct NewHomeScreen: View {
                             .foregroundColor(.accentColor)
                     }.scaleButtonStyle(scaleAmount: 0.9, opacityAmount: 1)
                 }
-                
-                Button {
-                    withAnimation {
-                        viewModel.isShowingCurrencyCodeInfo = true
-                        HapticManager.shared.impact(style: .soft)
-                    }
-                } label: {
-                    Image(systemName: "questionmark.circle.fill")
-                        .foregroundColor(.accentColor)
-                }.scaleButtonStyle(scaleAmount: 0.9, opacityAmount: 1)
             }
             .padding(15)
             .background {
@@ -288,6 +279,42 @@ struct NewHomeScreen: View {
             .cornerRadius(15)
             .padding(.horizontal)
             .padding(.horizontal, 5)
+            
+            NavigationLink {
+                CryptoCurrencyView(subViewModel: cryptoCurrencyViewModel)
+                    .task { cryptoCurrencyViewModel.getCryptoCurrencyData() }
+                    .onAppear { HapticManager.shared.impact(style: .soft) }
+            } label: {
+                VStack(spacing: 5) {
+                    HStack {
+                        ForEach(CryptoCurrency.allCases, id: \.self) { crypto in
+                            crypto.getImage()
+                        }
+                    }
+                    
+                    Text("Convert to Cryptocurrencies")
+                        .customFont(size: 20, weight: .semibold)
+                        .foregroundColor(.primary)
+                        .padding(.top, 6)
+                    
+                    Text("Bitcoin, Ethereum, Binance, and more")
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                    
+                    Text("Tap here to convert")
+                        .font(.footnote)
+                        .foregroundColor(.accentColor)
+                        .padding(.top, 5)
+                }
+                .alignView(to: .center)
+                .padding()
+                .padding(.vertical, 5)
+                .background(Material.ultraThin)
+                .cornerRadius(15)
+                .padding(.horizontal)
+                .padding(.horizontal, 5)
+            }.scaleButtonStyle(scaleAmount: 0.95)
             
             let data = CurrencyCode.allCases.filter { $0 != viewModel.baseCurrency }
             

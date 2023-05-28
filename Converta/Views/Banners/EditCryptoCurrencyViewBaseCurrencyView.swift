@@ -26,7 +26,7 @@ struct EditCryptoCurrencyViewBaseCurrencyView: View {
             }
         }
         .onAppear { setUp() }
-        .sheet(isPresented: $isShowingEditFavoritesView) { EditFavoritesView(searchTextFieldColor: Color(.systemGray6), showHelpButton: false) }
+        .sheet(isPresented: $isShowingEditFavoritesView) { EditFavoritesView(searchTextFieldColor: Color(.systemGray6)) }
         .onChange(of: self.numberValue) { newValue in
             withAnimation {
                 if newValue.isEmpty {
@@ -169,16 +169,6 @@ struct EditCryptoCurrencyViewBaseCurrencyView: View {
                             .foregroundColor(.brandPurple3)
                     }.scaleButtonStyle(scaleAmount: 0.9, opacityAmount: 1)
                 }
-                
-                Button {
-                    withAnimation {
-                        viewModel.isShowingCurrencyCodeInfo = true
-                        HapticManager.shared.impact(style: .soft)
-                    }
-                } label: {
-                    Image(systemName: "questionmark.circle.fill")
-                        .foregroundColor(.accentColor)
-                }.scaleButtonStyle(scaleAmount: 0.9, opacityAmount: 1)
             }
             .padding(10)
             .background {

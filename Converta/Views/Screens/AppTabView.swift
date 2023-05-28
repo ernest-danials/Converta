@@ -18,7 +18,7 @@ struct AppTabView: View {
                 ErrorOccuredView()
             } else {
                 TabView {
-                    NewHomeScreen()
+                    NewHomeScreen(cryptoCurrencyViewModel: cryptoCurrencyViewModel)
                         .onAppear { HapticManager.shared.impact(style: .soft) }
                         .tabItem { Label(TabViewItems.Home.rawValue, systemImage: TabViewItems.Home.getImageName()) }
                         .overlay(alignment: .bottom) {
@@ -32,14 +32,14 @@ struct AppTabView: View {
                     
                     HistoricalRatesView(subViewModel: historicalRatesViewModel)
                         .onAppear { HapticManager.shared.impact(style: .soft) }
-                        .tabItem { Label("Historical", systemImage: "clock.arrow.circlepath") }
+                        .tabItem { Label(TabViewItems.Historical.rawValue, systemImage: TabViewItems.Historical.getImageName()) }
                         .overlay(alignment: .bottom) {
                             if viewModel.isShowingHistoricalViewAmountZeroLabel { ValueZeroLabel }
                         }
                     
-                    CryptoCurrencyView(subViewModel: cryptoCurrencyViewModel)
+                    CurrencyCodesView()
                         .onAppear { HapticManager.shared.impact(style: .soft) }
-                        .tabItem { Label("Crypto", systemImage: "bitcoinsign.circle") }
+                        .tabItem { Label(TabViewItems.CurrencyCodes.rawValue, systemImage: TabViewItems.CurrencyCodes.getImageName()) }
                     
                     SettingsView()
                         .onAppear { HapticManager.shared.impact(style: .soft) }
@@ -49,7 +49,6 @@ struct AppTabView: View {
                 .setupForBanner(showWhen: viewModel.isShowingHomeInfoView, minHeight: 50, buttonColor: .brandPurple3, dismissAction: { viewModel.isShowingHomeInfoView = false }, bannerContent: HomeInfoView())
                 .setupForBanner(showWhen: viewModel.isShowingEditHistoricalRateBaseCurrencyView, minHeight: 35, buttonColor: .brandPurple3, dismissAction: dismissHistoricalEditBaseCurrency, bannerContent: EditHistoricalViewBaseCurrencyView(subViewModel: historicalRatesViewModel, date: .now.dayBefore))
                 .setupForBanner(showWhen: viewModel.isShowingEditCryptoBaseCurrencyView, minHeight: 35, buttonColor: .brandPurple3, dismissAction: dismissCryptoEditBaseCurrency, bannerContent: EditCryptoCurrencyViewBaseCurrencyView(subViewModel: cryptoCurrencyViewModel))
-                .setupForBanner(showWhen: viewModel.isShowingCurrencyCodeInfo, minHeight: 0, buttonColor: .brandPurple3, dismissAction: dismissCurrencyCodeInfo, bannerContent: CurrencyCodeInfoView())
                 .overlay { currencyDetailViewScreen }
                 .overlay { historicalCurrencyDetailViewScreen }
             }
@@ -262,10 +261,6 @@ struct AppTabView: View {
     
     func dismissCryptoEditBaseCurrency() {
         viewModel.isShowingEditCryptoBaseCurrencyView = false
-    }
-    
-    func dismissCurrencyCodeInfo() {
-        viewModel.isShowingCurrencyCodeInfo = false
     }
 }
 

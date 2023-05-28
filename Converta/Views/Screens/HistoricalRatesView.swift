@@ -64,11 +64,13 @@ struct HistoricalRatesView: View {
                     VStack(spacing: 5) {
                         Divider().padding([.horizontal, .bottom])
                         
-                        ProgressView().foregroundColor(.secondary)
+                        ProgressView().padding(.top)
                         
                         Text("Loading")
                             .fontWeight(.semibold)
                             .foregroundColor(.secondary)
+                        
+                        Spacer(minLength: 200)
                     }
                 } else {
                     if subViewModel.currentAPIResponse != nil {
@@ -79,7 +81,7 @@ struct HistoricalRatesView: View {
                         Divider().padding([.horizontal, .bottom])
                         
                         VStack(spacing: 30) {
-                            Text("Update with data from \(date.formatted(date: .long, time: .omitted))")
+                            Text("Update with data from \n\(date.formatted(date: .long, time: .omitted))")
                                 .customFont(size: 22, weight: .bold)
                                 .multilineTextAlignment(.center)
                             
@@ -101,7 +103,7 @@ struct HistoricalRatesView: View {
             }
             .navigationTitle("Historical")
         }
-        .sheet(isPresented: $isShowingEditFavoritesView) { EditFavoritesView(searchTextFieldColor: Color(.systemGray6), showHelpButton: false) }
+        .sheet(isPresented: $isShowingEditFavoritesView) { EditFavoritesView(searchTextFieldColor: Color(.systemGray6)) }
         .task { if subViewModel.currentAPIResponse == nil { subViewModel.getHistoricalRate(date: date) } }
         .onChange(of: self.date) { newValue in
             if !viewModel.isShowingEditHistoricalRateBaseCurrencyView {

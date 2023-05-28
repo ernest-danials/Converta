@@ -1,23 +1,18 @@
 //
-//  CurrencyCodeInfoView.swift
+//  CurrencyCodesView.swift
 //  Converta
 //
-//  Created by Ernest Dainals on 15/04/2023.
+//  Created by Ernest Dainals on 28/05/2023.
 //
 
 import SwiftUI
 
-struct CurrencyCodeInfoView: View {
+struct CurrencyCodesView: View {
     @EnvironmentObject var viewModel: ViewModel
     @State private var copiedCode: CurrencyCode? = nil
     var body: some View {
-        ScrollView {
-            VStack(spacing: 10) {
-                Text("Currency Codes")
-                    .customFont(size: 35, weight: .heavy)
-                    .alignView(to: .leading)
-                    .padding([.top, .horizontal])
-                
+        NavigationStack {
+            ScrollView {
                 if viewModel.currentAPIResponse_Currencies != nil {
                     LazyVStack {
                         ForEach(CurrencyCode.allCases, id: \.self) { code in
@@ -72,28 +67,21 @@ struct CurrencyCodeInfoView: View {
                         }
                     }
                 } else {
-                    VStack {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 60)
+                    VStack(spacing: 10) {
+                        ProgressView()
                         
-                        Text("An error has occured while loading.")
-                            .customFont(size: 20, weight: .semibold)
-                        
-                        Text("Please try again later.")
+                        Text("Loading")
+                            .fontWeight(.semibold)
                             .foregroundColor(.secondary)
                     }.padding(.vertical)
                 }
-            }
-        }.frame(maxHeight: 650).task { withAnimation { copiedCode = nil } }
+            }.navigationTitle("Currency Codes")
+        }
     }
 }
 
-struct CurrencyCodeInfoView_Previews: PreviewProvider {
+struct CurrencyCodesView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyCodeInfoView()
-            .border(.bar)
-            .environmentObject(ViewModel())
+        NavigationStack { CurrencyCodesView().environmentObject(ViewModel()) }
     }
 }

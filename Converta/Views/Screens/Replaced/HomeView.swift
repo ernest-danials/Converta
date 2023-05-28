@@ -42,7 +42,7 @@ struct HomeView: View {
             .edgesIgnoringSafeArea(.top)
         }
         .sheet(isPresented: $isShowingEditFavoritesView) {
-            EditFavoritesView(searchTextFieldColor: Color(.systemGray6), showHelpButton: false)
+            EditFavoritesView(searchTextFieldColor: Color(.systemGray6))
         }
     }
     

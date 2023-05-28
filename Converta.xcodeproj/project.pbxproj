@@ -13,10 +13,10 @@
 		172C7C8C29B4B03E0040A435 /* NewHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C7C8B29B4B03E0040A435 /* NewHomeScreen.swift */; };
 		172C7C8F29B4D5B40040A435 /* CurrencyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C7C8E29B4D5B40040A435 /* CurrencyCard.swift */; };
 		172C7C9129B4DAE40040A435 /* HomeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C7C9029B4DAE40040A435 /* HomeInfoView.swift */; };
-		172FBF0729EA787B0003E94D /* CurrencyCodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172FBF0629EA787B0003E94D /* CurrencyCodeInfoView.swift */; };
 		1730769629C898FA00B7ECB0 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1730769529C898FA00B7ECB0 /* LibraryView.swift */; };
 		1764579C29E4277200B61D2F /* CryptoCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764579B29E4277200B61D2F /* CryptoCurrencyView.swift */; };
 		1764579E29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764579D29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift */; };
+		176D394E2A23684C00B4D195 /* CurrencyCodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D394D2A23684C00B4D195 /* CurrencyCodesView.swift */; };
 		177620EF29B749AF00996A15 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177620EE29B749AF00996A15 /* PersistenceController.swift */; };
 		177620F229B749EB00996A15 /* Library.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177620F029B749EB00996A15 /* Library.xcdatamodeld */; };
 		177F713329BE1851009AE0D4 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F713229BE1851009AE0D4 /* TipJarView.swift */; };
@@ -118,10 +118,10 @@
 		172C7C8B29B4B03E0040A435 /* NewHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeScreen.swift; sourceTree = "<group>"; };
 		172C7C8E29B4D5B40040A435 /* CurrencyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCard.swift; sourceTree = "<group>"; };
 		172C7C9029B4DAE40040A435 /* HomeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoView.swift; sourceTree = "<group>"; };
-		172FBF0629EA787B0003E94D /* CurrencyCodeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCodeInfoView.swift; sourceTree = "<group>"; };
 		1730769529C898FA00B7ECB0 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		1764579B29E4277200B61D2F /* CryptoCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyView.swift; sourceTree = "<group>"; };
 		1764579D29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCryptoCurrencyViewBaseCurrencyView.swift; sourceTree = "<group>"; };
+		176D394D2A23684C00B4D195 /* CurrencyCodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCodesView.swift; sourceTree = "<group>"; };
 		177620EE29B749AF00996A15 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		177620F129B749EB00996A15 /* Library.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Library.xcdatamodel; sourceTree = "<group>"; };
 		177F713229BE1851009AE0D4 /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
@@ -330,6 +330,7 @@
 				1700E26D29B9FD5C00784C5C /* LibraryCurrencyDetailView.swift */,
 				17BDF10329E2D32000E4B6C5 /* HistoricalRatesView.swift */,
 				1764579B29E4277200B61D2F /* CryptoCurrencyView.swift */,
+				176D394D2A23684C00B4D195 /* CurrencyCodesView.swift */,
 				17DFDDC329BC89E700609BC9 /* SettingsView.swift */,
 				17A58E4729AA068C002908B1 /* EditFavoritesView.swift */,
 				177F713229BE1851009AE0D4 /* TipJarView.swift */,
@@ -442,7 +443,6 @@
 				17BDF10729E2E8A400E4B6C5 /* EditHistoricalViewBaseCurrencyView.swift */,
 				1764579D29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift */,
 				172C7C9029B4DAE40040A435 /* HomeInfoView.swift */,
-				172FBF0629EA787B0003E94D /* CurrencyCodeInfoView.swift */,
 			);
 			path = Banners;
 			sourceTree = "<group>";
@@ -655,6 +655,7 @@
 				172C7C8F29B4D5B40040A435 /* CurrencyCard.swift in Sources */,
 				1791B95F299E3A2E00DE2777 /* ErrorOccuredView.swift in Sources */,
 				177620F229B749EB00996A15 /* Library.xcdatamodeld in Sources */,
+				176D394E2A23684C00B4D195 /* CurrencyCodesView.swift in Sources */,
 				17BDF10429E2D32000E4B6C5 /* HistoricalRatesView.swift in Sources */,
 				17AC7510299D0B3D00D9866E /* HapticManager.swift in Sources */,
 				178DDDC929BF6E03003FB05C /* SFSafariViewWrapper.swift in Sources */,
@@ -678,7 +679,6 @@
 				17AC74E9299D00C100D9866E /* ConvertaApp.swift in Sources */,
 				17BDF10629E2DF1100E4B6C5 /* Date+Ext.swift in Sources */,
 				1764579C29E4277200B61D2F /* CryptoCurrencyView.swift in Sources */,
-				172FBF0729EA787B0003E94D /* CurrencyCodeInfoView.swift in Sources */,
 				172C7C8C29B4B03E0040A435 /* NewHomeScreen.swift in Sources */,
 				17955CEE29C74B8C00748CF3 /* NetworkConnectionManager.swift in Sources */,
 				17DFDDC429BC89E700609BC9 /* SettingsView.swift in Sources */,
@@ -908,7 +908,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Converta/Converta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "Converta/Preview\\ Content";
 				DEVELOPMENT_TEAM = VNASSVSN5W;
@@ -932,7 +932,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ernestdanials.Converta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -955,7 +955,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Converta/Converta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "Converta/Preview\\ Content";
 				DEVELOPMENT_TEAM = VNASSVSN5W;
@@ -979,7 +979,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ernestdanials.Converta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1000,7 +1000,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Converta for Apple Watch Watch App/Converta for Apple Watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Converta for Apple Watch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = VNASSVSN5W;
 				ENABLE_PREVIEWS = YES;
@@ -1013,7 +1013,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ernestdanials.Converta.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1032,7 +1032,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Converta for Apple Watch Watch App/Converta for Apple Watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Converta for Apple Watch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = VNASSVSN5W;
 				ENABLE_PREVIEWS = YES;
@@ -1045,7 +1045,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ernestdanials.Converta.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;

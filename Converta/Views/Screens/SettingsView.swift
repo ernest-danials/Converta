@@ -15,19 +15,10 @@ struct SettingsView: View {
             Form {
                 Section {
                     NavigationLink {
-                        EditFavoritesView(searchTextFieldColor: Color(.systemGray5), needToolbar: false, showHelpButton: true)
+                        EditFavoritesView(searchTextFieldColor: Color(.systemGray5), needToolbar: false)
                             .onAppear { HapticManager.shared.impact(style: .soft) }
                     } label: {
                         listRow(text: "Edit Favourite Currencies", imageName: "checklist")
-                    }
-                    
-                    Button {
-                        withAnimation {
-                            viewModel.isShowingCurrencyCodeInfo = true
-                            HapticManager.shared.impact(style: .soft)
-                        }
-                    } label: {
-                        listRow(text: "Show Currency Codes", imageName: "dollarsign")
                     }
                 }
                 
@@ -42,7 +33,7 @@ struct SettingsView: View {
                 
                 Section {
                     NavigationLink {
-                        SupportView()
+                        SupportView(showDataLoadingFailTips: false)
                             .onAppear { HapticManager.shared.impact(style: .soft) }
                     } label: {
                         listRow(text: "Support", imageName: "lifepreserver.fill", backgroundColor: .indigo, iconColor: .white)
@@ -51,10 +42,20 @@ struct SettingsView: View {
                 
                 Section {
                     NavigationLink {
-                        AboutTheDeveloperView()
+                        AboutConvertaView()
                             .onAppear { HapticManager.shared.impact(style: .soft) }
                     } label: {
-                        listRow(text: "About the Developer", imageName: "person.crop.circle.fill")
+                        Label {
+                            Text("About Converta")
+                                .fontWeight(.medium)
+                                .foregroundColor(.primary)
+                        } icon: {
+                            Image("AppIcon-icon-preview")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 30, height: 30)
+                                .cornerRadius(10)
+                        }
                     }
                 }
                 
@@ -139,6 +140,9 @@ struct SettingsView_Previews: PreviewProvider {
         AppTabView()
             .environmentObject(ViewModel())
         
+        SettingsView()
+            .environmentObject(ViewModel())
+        
         NavigationStack {
             AppearanceView()
                 .environmentObject(ViewModel())
@@ -153,7 +157,11 @@ struct SettingsView_Previews: PreviewProvider {
         }
         
         NavigationStack {
-            SupportView()
+            AboutConvertaView()
+        }
+        
+        NavigationStack {
+            SupportView(showDataLoadingFailTips: true)
                 .environmentObject(ViewModel())
         }
     }
@@ -161,33 +169,40 @@ struct SettingsView_Previews: PreviewProvider {
 
 struct AppearanceView: View {
     @EnvironmentObject var viewModel: ViewModel
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
         Form {
             Section("App Icons") {
-                LazyVGrid(columns: [.init(.adaptive(minimum: 100))], spacing: 40) {
-                    ForEach(AppIcon.allCases) { icon in
-                        VStack {
-                            Button {
-                                viewModel.appIcon = icon.rawValue
-                                UIApplication.shared.setAlternateIconName(icon.iconName)
-                                HapticManager.shared.impact(style: .soft)
-                            } label: {
-                                Image(uiImage: icon.preview)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .cornerRadius(15)
-                                    .shadow(radius: 2)
-                            }.scaleButtonStyle(opacityAmount: 1)
-                            
-                            Image(systemName: "checkmark")
-                                .imageScale(.large)
-                                .fontWeight(.semibold)
-                                .padding(.top)
-                                .foregroundColor(viewModel.appIcon == icon.rawValue ? .brandPurple3 : .secondary.opacity(0.4))
+                if horizontalSizeClass == .compact {
+                    LazyVGrid(columns: [.init(.adaptive(minimum: 100))], spacing: 40) {
+                        ForEach(AppIcon.allCases) { icon in
+                            VStack {
+                                Button {
+                                    viewModel.appIcon = icon.rawValue
+                                    UIApplication.shared.setAlternateIconName(icon.iconName)
+                                    HapticManager.shared.impact(style: .soft)
+                                } label: {
+                                    Image(uiImage: icon.preview)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 100, height: 100)
+                                        .cornerRadius(15)
+                                        .shadow(radius: 2)
+                                }.scaleButtonStyle(opacityAmount: 1)
+                                
+                                Image(systemName: "checkmark")
+                                    .imageScale(.large)
+                                    .fontWeight(.semibold)
+                                    .padding(.top)
+                                    .foregroundColor(viewModel.appIcon == icon.rawValue ? .brandPurple3 : .secondary.opacity(0.4))
+                            }
                         }
-                    }
-                }.padding(.vertical)
+                    }.padding(.vertical)
+                } else {
+                    Text("Sorry, alternative app icons are only available on iPhone.")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.secondary)
+                }
             }
             
             Section("Color Scheme") {
@@ -628,6 +643,184 @@ struct PrivacyPolicyView: View {
     }
 }
 
+struct AboutConvertaView: View {
+    @Environment(\.colorScheme) var colorScheme
+    var body: some View {
+        ScrollView {
+            Image("AppIcon-icon-preview")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100)
+                .cornerRadius(20)
+                .padding()
+            
+            LinearGradient(colors: [.brandPurple2, .brandPurple4.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .mask {
+                    Text("Converta")
+                        .customFont(size: 30, weight: .heavy)
+                }
+                .frame(minHeight: 26)
+            
+            Text("by Ernest Danials")
+                .foregroundColor(.secondary)
+            
+            NavigationLink {
+                AboutTheDeveloperView().onAppear { HapticManager.shared.impact(style: .soft) }
+            } label: {
+                HStack {
+                    Image("developerAvatar")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 60)
+                        .clipShape(Circle())
+                    
+                    VStack(alignment: .leading) {
+                        Text("Meet the Developer")
+                            .customFont(size: 20, weight: .semibold)
+                            .foregroundColor(.primary)
+                    }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                }.padding().background(Material.ultraThin).cornerRadius(15).padding()
+            }.scaleButtonStyle(scaleAmount: 0.95)
+            
+            Divider().padding(.horizontal)
+            
+            Text("Converta on social media")
+                .fontWeight(.semibold)
+                .foregroundColor(.secondary)
+                .padding(.top, 5)
+            
+            Link(destination: URL(string: "https://instagram.com/converta_app?igshid=YmMyMTA2M2Y=")!) {
+                externalLinkListRow(text: "Instagram", imageWhenLight: "Instagram_Logo", imageWhenDark: "Instagram_Glyph_White")
+            }.scaleButtonStyle(scaleAmount: 0.95)
+            
+            Link(destination: URL(string: "https://twitter.com/Converta_app")!) {
+                externalLinkListRow(text: "Twitter", imageWhenLight: "Twitter_Logo", imageWhenDark: "Twitter_Glyph_White")
+            }.scaleButtonStyle(scaleAmount: 0.95)
+            
+            Divider().padding()
+            
+            NavigationLink {
+                licensesView().onAppear { HapticManager.shared.impact(style: .soft) }
+            } label: {
+                HStack {
+                    Text("Licenses")
+                        .customFont(size: 18, weight: .semibold)
+                        .foregroundColor(.primary)
+                        .padding(.leading, 1)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.secondary)
+                }
+                .padding()
+                .background(Material.ultraThin)
+                .cornerRadius(15)
+                .padding(.horizontal)
+            }.scaleButtonStyle(scaleAmount: 0.95)
+        }
+        .navigationTitle("About Converta")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func externalLinkListRow(text: String, imageWhenLight: String, imageWhenDark: String) -> some View {
+        HStack {
+            Label {
+                Text(text)
+                    .customFont(size: 18, weight: .semibold)
+                    .foregroundColor(.primary)
+                    .padding(.leading, 1)
+            } icon: {
+                Image(colorScheme == .light ? imageWhenLight : imageWhenDark)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 30)
+            }
+            
+            Spacer()
+            
+            Image(systemName: "arrow.up.forward")
+                .fontWeight(.semibold)
+                .foregroundColor(.secondary)
+        }
+        .padding()
+        .background(Material.ultraThin)
+        .cornerRadius(15)
+        .padding(.horizontal)
+    }
+    
+    func licensesView() -> some View {
+        ScrollView {
+            LazyVStack {
+                NavigationLink {
+                    LicenseDetailView(githubURLString: "https://github.com/exyte/ActivityIndicatorView", licenseText: LicenseTexts.ActivityIndicatorView.rawValue)
+                        .onAppear { HapticManager.shared.impact(style: .soft) }
+                } label: {
+                    HStack {
+                        Text("ActivityIndicatorView")
+                            .customFont(size: 18, weight: .semibold)
+                            .foregroundColor(.primary)
+                            .padding(.leading, 1)
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding()
+                    .background(Material.ultraThin)
+                    .cornerRadius(15)
+                    .padding(.horizontal)
+                }.scaleButtonStyle(scaleAmount: 0.95)
+            }
+        }
+        .navigationTitle("Licenses")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct LicenseDetailView: View {
+    @Environment(\.colorScheme) var colorScheme
+    let githubURLString: String
+    let licenseText: String
+    var body: some View {
+        ScrollView {
+            Link(destination: URL(string: githubURLString)!) {
+                externalLinkListRow(text: "View on GitHub")
+            }.scaleButtonStyle(scaleAmount: 0.95)
+            
+            Text(licenseText)
+                .customFont(size: 18, weight: .semibold, design: .monospaced)
+                .padding()
+        }.navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func externalLinkListRow(text: String) -> some View {
+        HStack {
+            Text(text)
+                .customFont(size: 18, weight: .semibold)
+                .foregroundColor(.primary)
+                .padding(.leading, 1)
+            
+            Spacer()
+            
+            Image(systemName: "arrow.up.forward")
+                .fontWeight(.semibold)
+                .foregroundColor(.secondary)
+        }
+        .padding()
+        .background(Material.ultraThin)
+        .cornerRadius(15)
+        .padding(.horizontal)
+    }
+}
+
 struct AboutTheDeveloperView: View {
     var body: some View {
         ScrollView {
@@ -642,7 +835,7 @@ struct AboutTheDeveloperView: View {
                 .customFont(size: 25, weight: .semibold)
                 .padding(.horizontal)
             
-            Text("I'm a Korean student aged 16. My dream is to make apps for everybody to use.")
+            Text("I'm a Korean student aged 16 who wants to be an iOS developer one day.")
                 .fontWeight(.medium)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
@@ -722,9 +915,10 @@ struct AboutTheDeveloperView: View {
 
 struct SupportView: View {
     @EnvironmentObject var viewModel: ViewModel
+    let showDataLoadingFailTips: Bool
     var body: some View {
         ScrollView {
-            Text("Need Help? We're happy to help.")
+            Text("Need Help? We're here to help.")
                 .customFont(size: 20, weight: .semibold)
                 .alignView(to: .leading)
                 .padding(.horizontal)
@@ -743,6 +937,26 @@ struct SupportView: View {
                     .background(Material.ultraThin)
                     .cornerRadius(15)
             }.scaleButtonStyle().padding(.horizontal)
+            
+            if showDataLoadingFailTips {
+                VStack(alignment: .leading) {
+                    Divider()
+                        .padding([.horizontal, .top])
+                    
+                    Text("If the app keeps fail to load data")
+                        .customFont(size: 20, weight: .semibold)
+                        .padding(.horizontal)
+                    
+                    frequentQuestionCard(question: "Solution 1", answer: "Please make sure that you're currently connected to the Internet.")
+                        .padding(.horizontal)
+                    
+                    frequentQuestionCard(question: "Solution 2", answer: "Please check our social medias. If the error is caused by external reasons, we'll post on our social medias about the problem.")
+                        .padding(.horizontal)
+                    
+                    frequentQuestionCard(question: "Solution 3", answer: "If the error continues, please contact us using the methods stated at \"Contact Us\".")
+                        .padding(.horizontal)
+                }
+            }
             
             VStack(alignment: .leading) {
                 Divider()
@@ -826,7 +1040,7 @@ struct SupportView: View {
                     
                     frequentQuestionCard(question: "What's the source of the currency information?", answer: "Converta uses \"CurrencyAPI\" as the data provider.")
                     
-                    frequentQuestionCard(question: "On Historical, some of the converted values appear as zero.", answer: "Some of the currencies may not have any data on some period of time. If the converted value appears as zero, the currency may not have any data of that time.")
+                    frequentQuestionCard(question: "On Historical, some of the converted values appear as zero or one.", answer: "Some of the currencies may not have any data on some period of time. If the converted value appears as zero or one, the currency may not have any data of that time.")
                 }.padding(.horizontal)
             }.padding(.bottom)
         }

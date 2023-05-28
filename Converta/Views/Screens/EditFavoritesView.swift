@@ -13,12 +13,10 @@ struct EditFavoritesView: View {
     @State private var searchText: String = ""
     let searchTextFieldColor: Color
     let needToolbar: Bool
-    let showHelpButton: Bool
     
-    init(searchTextFieldColor: Color, needToolbar: Bool = true, showHelpButton: Bool) {
+    init(searchTextFieldColor: Color, needToolbar: Bool = true) {
         self.searchTextFieldColor = searchTextFieldColor
         self.needToolbar = needToolbar
-        self.showHelpButton = showHelpButton
     }
     
     var body: some View {
@@ -98,18 +96,6 @@ struct EditFavoritesView: View {
                                     .foregroundColor(.accentColor)
                             }.scaleButtonStyle(scaleAmount: 0.9, opacityAmount: 1)
                         }
-                        
-                        if showHelpButton {
-                            Button {
-                                withAnimation {
-                                    viewModel.isShowingCurrencyCodeInfo = true
-                                    HapticManager.shared.impact(style: .soft)
-                                }
-                            } label: {
-                                Image(systemName: "questionmark.circle.fill")
-                                    .foregroundColor(.accentColor)
-                            }.scaleButtonStyle(scaleAmount: 0.9, opacityAmount: 1)
-                        }
                     }
                     .padding(15)
                     .background {
@@ -180,7 +166,7 @@ struct EditFavoritesView: View {
 
 struct EditFavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        EditFavoritesView(searchTextFieldColor: Color(.systemGray6), showHelpButton: true)
+        EditFavoritesView(searchTextFieldColor: Color(.systemGray6))
             .environmentObject(ViewModel())
     }
 }

@@ -13,6 +13,7 @@ struct HistoricalRatesView: View {
     @State private var isShowingEditFavoritesView: Bool = false
     @State private var searchText: String = ""
     @State private var date: Date = .init().twoDaysBefore
+    @State private var hasSeenAd: Bool = false
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -76,6 +77,10 @@ struct HistoricalRatesView: View {
                     if subViewModel.currentAPIResponse != nil {
                         favoritesView
                         
+                        // Test unitID: ca-app-pub-3940256099942544/2934735716
+                        // Real unitID: ca-app-pub-6914406630651088/1428295725
+                        BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716").setBannerType(to: .banner).padding(.bottom)
+                        
                         allCurrenciesView.padding(.bottom)
                     } else {
                         Divider().padding([.horizontal, .bottom])
@@ -105,6 +110,39 @@ struct HistoricalRatesView: View {
         }
         .sheet(isPresented: $isShowingEditFavoritesView) { EditFavoritesView(searchTextFieldColor: Color(.systemGray6)) }
         .task { if subViewModel.currentAPIResponse == nil { subViewModel.getHistoricalRate(date: date) } }
+        .overlay {
+            if !hasSeenAd {
+                VStack(spacing: 30) {
+                    Spacer()
+                    
+                    Text("This ad helps us \nkeep the service free")
+                        .customFont(size: 23, weight: .bold)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom)
+                    
+                    // Test unitID: ca-app-pub-3940256099942544/2934735716
+                    // Real unitID: ca-app-pub-6914406630651088/4469392035
+                    BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716").setBannerType(to: .rectangle).padding(.bottom)
+                        .background { ProgressView("Loading") }
+                    
+                    Spacer()
+                    
+                    Button {
+                        withAnimation(.spring()) { self.hasSeenAd = true }
+                        HapticManager.shared.impact(style: .soft)
+                    } label: {
+                        Text("Continue")
+                            .customFont(size: 20, weight: .semibold, design: .rounded)
+                            .foregroundColor(.white)
+                            .padding()
+                            .alignView(to: .center)
+                            .background(Color.brandPurple3.gradient)
+                            .cornerRadius(20)
+                            .padding(.horizontal)
+                    }.scaleButtonStyle().padding(.bottom)
+                }.alignView(to: .center).alignViewVertically(to: .center).background(Material.ultraThin)
+            }
+        }
         .onChange(of: self.date) { newValue in
             if !viewModel.isShowingEditHistoricalRateBaseCurrencyView {
                 HapticManager.shared.impact(style: .soft)

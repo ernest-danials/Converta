@@ -19,6 +19,10 @@ struct NewHomeScreen: View {
                 
                 favoritesView
                 
+                // Test unitID: ca-app-pub-3940256099942544/2934735716
+                // Real unitID: ca-app-pub-6914406630651088/5407069189
+                BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716").setBannerType(to: .banner).padding(.bottom)
+                
                 allCurrenciesView.padding(.bottom)
                 
                 if viewModel.isShowingHomeAmountZeroLabel { Spacer(minLength: 90) }

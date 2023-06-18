@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 @main
 struct ConvertaApp: App {
     let viewModel: ViewModel = .init()
+    
+    init() { GADMobileAds.sharedInstance().start(completionHandler: nil) }
     
     var body: some Scene {
         WindowGroup {

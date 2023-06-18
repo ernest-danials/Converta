@@ -59,11 +59,7 @@ struct AppTabView: View {
             viewModel.initiateFunctions(getData: true)
             cryptoCurrencyViewModel.getCryptoCurrencyData()
         }
-        .overlay {
-            if viewModel.isLoading() {
-                LoadingView()
-            }
-        }
+        .overlay { if viewModel.isLoading() { LoadingView() } }
         .tint(viewModel.isLoading() ? .secondary : .brandPurple3)
     }
     

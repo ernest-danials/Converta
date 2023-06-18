@@ -18,7 +18,7 @@ struct SettingsView: View {
                         EditFavoritesView(searchTextFieldColor: Color(.systemGray5), needToolbar: false)
                             .onAppear { HapticManager.shared.impact(style: .soft) }
                     } label: {
-                        listRow(text: "Edit Favourite Currencies", imageName: "checklist")
+                        listRow(text: "Edit Favourite Currencies", imageName: "star.fill")
                     }
                 }
                 
@@ -78,6 +78,15 @@ struct SettingsView: View {
                 }
                 
                 Section {
+                    NavigationLink {
+                        ConvertaBetaProgramView()
+                            .onAppear { HapticManager.shared.impact(style: .soft) }
+                    } label: {
+                        listRow(text: "Converta Beta Program", imageName: "hammer.fill")
+                    }
+                }
+                
+                Section {
                     Link(destination: URL(string: "https://instagram.com/converta_app?igshid=YmMyMTA2M2Y=")!) {
                         externalLinkListRow(text: "Instagram", imageWhenLight: "Instagram_Glyph_Black", imageWhenDark: "Instagram_Glyph_White")
                     }
@@ -107,6 +116,9 @@ struct SettingsView: View {
                     .frame(width: 30, height: 30)
                 
                 Image(systemName: imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 16, height: 16)
                     .foregroundColor(iconColor)
                     .padding(1)
             }
@@ -163,6 +175,10 @@ struct SettingsView_Previews: PreviewProvider {
         NavigationStack {
             SupportView(showDataLoadingFailTips: true)
                 .environmentObject(ViewModel())
+        }
+        
+        NavigationStack {
+            ConvertaBetaProgramView()
         }
     }
 }
@@ -694,11 +710,11 @@ struct AboutConvertaView: View {
                 .padding(.top, 5)
             
             Link(destination: URL(string: "https://instagram.com/converta_app?igshid=YmMyMTA2M2Y=")!) {
-                externalLinkListRow(text: "Instagram", imageWhenLight: "Instagram_Logo", imageWhenDark: "Instagram_Glyph_White")
+                externalLinkListRow(text: "Instagram", imageWhenLight: "Instagram_Logo", imageWhenDark: "Instagram_Logo")
             }.scaleButtonStyle(scaleAmount: 0.95)
             
             Link(destination: URL(string: "https://twitter.com/Converta_app")!) {
-                externalLinkListRow(text: "Twitter", imageWhenLight: "Twitter_Logo", imageWhenDark: "Twitter_Glyph_White")
+                externalLinkListRow(text: "Twitter", imageWhenLight: "Twitter_Logo", imageWhenDark: "Twitter_Logo")
             }.scaleButtonStyle(scaleAmount: 0.95)
             
             Divider().padding()
@@ -1065,5 +1081,156 @@ struct SupportView: View {
                 Spacer()
             }.padding(.top, 1).padding(.horizontal, 5)
         }.padding().alignView(to: .leading).background(Material.ultraThin).cornerRadius(15)
+    }
+}
+
+struct ConvertaBetaProgramView: View {
+    @Environment(\.colorScheme) var colorScheme
+    var body: some View {
+        ScrollView {
+            ZStack(alignment: .bottomTrailing) {
+                Image(.appIconIconPreview)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 110, height: 110)
+                    .cornerRadius(25)
+                    .shadow(radius: 5)
+                
+                Image(systemName: "hammer.circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 45, height: 45)
+                    .foregroundColor(.brandPurple3)
+                    .offset(x: 4, y: 8)
+            }.padding()
+            
+            Text("Converta Beta Program")
+                .customFont(size: 24, weight: .bold)
+                .padding(.bottom, 1)
+            
+            Text("As a member of the Converta Beta Program, you can take part in shaping Converta by testing beta versions and letting us know what you think.")
+                .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
+                .padding(.horizontal)
+            
+            if (AppConfig.appConfiguration != .TestFlight || AppConfig.appConfiguration == .Debug) {
+                Link(destination: URL(string: "https://testflight.apple.com/join/GNYu4NR2")!) {
+                    Text("Sign up with TestFlight")
+                        .customFont(size: 20, weight: .semibold, design: .rounded)
+                        .foregroundColor(.white)
+                        .padding()
+                        .alignView(to: .center)
+                        .background(Color.brandPurple3.gradient)
+                        .cornerRadius(20)
+                }.scaleButtonStyle().padding([.top, .horizontal])
+            } else {
+                Text("You're already signed up")
+                    .customFont(size: 20, weight: .semibold, design: .rounded)
+                    .foregroundColor(.white)
+                    .padding()
+                    .alignView(to: .center)
+                    .background(Color.secondary.gradient)
+                    .cornerRadius(20)
+                    .padding([.top, .horizontal])
+            }
+            
+            if (AppConfig.appConfiguration != .TestFlight || AppConfig.appConfiguration == .Debug) {
+                Label("Currently, the maximum tester count is 300.", systemImage: "info.circle")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
+            
+            if (AppConfig.appConfiguration != .TestFlight || AppConfig.appConfiguration == .Debug) {
+                perksView
+                
+                whatToDoView.padding(.bottom)
+            } else {
+                whatToDoView
+                    
+                VStack {
+                    perksView
+                    
+                    Link(destination: URL(string: "https://discord.gg/jZuSejvnQM")!) {
+                        externalLinkListRow(text: "Join the Discord server", imageWhenLight: "Discord_Logo", imageWhenDark: "Discord_Logo")
+                    }
+                }.padding(.bottom)
+            }
+        }
+        .navigationTitle("Converta Beta Program")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    var whatToDoView: some View {
+        VStack(spacing: 10) {
+            Divider().padding([.top, .horizontal])
+            
+            Text("What to do")
+                .customFont(size: 20, weight: .bold)
+                .alignView(to: .leading)
+                .padding(.horizontal)
+            
+            Text("Read the release note, and test the new features. If there're some issues with them, send us a feedback via TestFlight. If you want to contact us directly and discuss about the issue with our developer, you can contact us via social media.")
+                .alignView(to: .leading)
+                .padding(.horizontal)
+            
+            Link(destination: URL(string: "https://instagram.com/converta_app?igshid=YmMyMTA2M2Y=")!) {
+                externalLinkListRow(text: "Instagram", imageWhenLight: "Instagram_Logo", imageWhenDark: "Instagram_Logo")
+            }.scaleButtonStyle(scaleAmount: 0.95)
+            
+            Link(destination: URL(string: "https://twitter.com/Converta_app")!) {
+                externalLinkListRow(text: "Twitter", imageWhenLight: "Twitter_Logo", imageWhenDark: "Twitter_Logo")
+            }.scaleButtonStyle(scaleAmount: 0.95)
+        }
+    }
+    
+    var perksView: some View {
+        VStack(spacing: 10) {
+            Divider().padding([.top, .horizontal])
+            
+            Text("Perks")
+                .customFont(size: 20, weight: .bold)
+                .alignView(to: .leading)
+                .padding(.horizontal)
+            
+            VStack(alignment: .leading) {
+                Text("1. No Ads")
+                    .customFont(size: 18, weight: .semibold)
+                
+                Text("Our beta apps doesn't have ads. If you join our beta program, you can enjoy all of our app's services ad-free.")
+            }.alignView(to: .leading).padding(.horizontal)
+            
+            VStack(alignment: .leading) {
+                Text("2. Discord Server Access")
+                    .customFont(size: 18, weight: .semibold)
+                
+                Text("After joining our beta program, you'll have access to our Discord server. On the server, you can connect with our beta program members, discuss about our app, and more.")
+            }.alignView(to: .leading).padding(.horizontal)
+        }
+    }
+    
+    func externalLinkListRow(text: String, imageWhenLight: String, imageWhenDark: String) -> some View {
+        HStack {
+            Label {
+                Text(text)
+                    .customFont(size: 15, weight: .semibold)
+                    .foregroundColor(.primary)
+                    .padding(.leading, 1)
+            } icon: {
+                Image(colorScheme == .light ? imageWhenLight : imageWhenDark)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 18, height: 25)
+            }
+            
+            Spacer()
+            
+            Image(systemName: "arrow.up.forward")
+                .fontWeight(.semibold)
+                .foregroundColor(.secondary)
+        }
+        .padding()
+        .background(Material.ultraThin)
+        .cornerRadius(15)
+        .padding(.horizontal)
     }
 }

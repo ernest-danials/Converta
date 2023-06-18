@@ -67,6 +67,9 @@
 		17BDF10429E2D32000E4B6C5 /* HistoricalRatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDF10329E2D32000E4B6C5 /* HistoricalRatesView.swift */; };
 		17BDF10629E2DF1100E4B6C5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDF10529E2DF1100E4B6C5 /* Date+Ext.swift */; };
 		17BDF10829E2E8A400E4B6C5 /* EditHistoricalViewBaseCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDF10729E2E8A400E4B6C5 /* EditHistoricalViewBaseCurrencyView.swift */; };
+		17C555A92A3F4A7B0006A50E /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 17C555A82A3F4A7B0006A50E /* GoogleMobileAds */; };
+		17C555AC2A3F4BEC0006A50E /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C555AB2A3F4BEC0006A50E /* BannerAd.swift */; };
+		17C555B02A3F5D1C0006A50E /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C555AF2A3F5D1C0006A50E /* AppConfiguration.swift */; };
 		17CB743B29C20CE5009C0586 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB743A29C20CE5009C0586 /* OnBoardingView.swift */; };
 		17CED43929C899DC008703CC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CED43829C899DC008703CC /* SettingsView.swift */; };
 		17D31B2E299F383C00A9AA98 /* EditHomeBaseCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D31B2D299F383C00A9AA98 /* EditHomeBaseCurrencyView.swift */; };
@@ -162,6 +165,8 @@
 		17BDF10329E2D32000E4B6C5 /* HistoricalRatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRatesView.swift; sourceTree = "<group>"; };
 		17BDF10529E2DF1100E4B6C5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		17BDF10729E2E8A400E4B6C5 /* EditHistoricalViewBaseCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHistoricalViewBaseCurrencyView.swift; sourceTree = "<group>"; };
+		17C555AB2A3F4BEC0006A50E /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
+		17C555AF2A3F5D1C0006A50E /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		17CB743929C20708009C0586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		17CB743A29C20CE5009C0586 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		17CED43829C899DC008703CC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -187,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C555A92A3F4A7B0006A50E /* GoogleMobileAds in Frameworks */,
 				178AB18D29D82149004ACBAC /* ActivityIndicatorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +297,7 @@
 				17AC74FC299D016700D9866E /* API */,
 				17AC74FB299D016000D9866E /* Extension */,
 				177620ED29B7498800996A15 /* CoreData */,
+				17C555AA2A3F4BDE0006A50E /* Google AdMob */,
 				17AC74F9299D015000D9866E /* Model */,
 				17AC74F7299D013400D9866E /* Views */,
 				17AC74E8299D00C100D9866E /* ConvertaApp.swift */,
@@ -376,6 +383,7 @@
 				17955CED29C74B8C00748CF3 /* NetworkConnectionManager.swift */,
 				1715356429A9E5C800E2CE9F /* Custom Protocols & PropertyWrapper */,
 				17AC7508299D01CB00D9866E /* Custom Button Styles */,
+				17C555AF2A3F5D1C0006A50E /* AppConfiguration.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -434,6 +442,14 @@
 				172AD7BC29D321E5006958DC /* LibraryItemDetailView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		17C555AA2A3F4BDE0006A50E /* Google AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				17C555AB2A3F4BEC0006A50E /* BannerAd.swift */,
+			);
+			path = "Google AdMob";
 			sourceTree = "<group>";
 		};
 		17D31B31299F3DF500A9AA98 /* Banners */ = {
@@ -521,6 +537,7 @@
 			name = Converta;
 			packageProductDependencies = (
 				178AB18C29D82149004ACBAC /* ActivityIndicatorView */,
+				17C555A82A3F4A7B0006A50E /* GoogleMobileAds */,
 			);
 			productName = Converta;
 			productReference = 17AC74E5299D00C100D9866E /* Converta.app */;
@@ -551,7 +568,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					17955CF329C7521F00748CF3 = {
 						CreatedOnToolsVersion = 14.3;
@@ -575,6 +592,7 @@
 			mainGroup = 17AC74DC299D00C100D9866E;
 			packageReferences = (
 				178AB18B29D82149004ACBAC /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				17C555A72A3F4A7B0006A50E /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 17AC74E6299D00C100D9866E /* Products */;
 			projectDirPath = "";
@@ -648,6 +666,7 @@
 				17AC7505299D01AD00D9866E /* BannerView.swift in Sources */,
 				17AC7501299D018000D9866E /* View+Ext.swift in Sources */,
 				177620EF29B749AF00996A15 /* PersistenceController.swift in Sources */,
+				17C555B02A3F5D1C0006A50E /* AppConfiguration.swift in Sources */,
 				172C7C9129B4DAE40040A435 /* HomeInfoView.swift in Sources */,
 				17FD931629B74C910051F90C /* LibraryView.swift in Sources */,
 				1797DC5729C5D35C00F3B85E /* Image+Ext.swift in Sources */,
@@ -675,6 +694,7 @@
 				1764579E29E4338200B61D2F /* EditCryptoCurrencyViewBaseCurrencyView.swift in Sources */,
 				17AC750C299D021100D9866E /* Constants.swift in Sources */,
 				17AC750E299D048200D9866E /* Color+Ext.swift in Sources */,
+				17C555AC2A3F4BEC0006A50E /* BannerAd.swift in Sources */,
 				17AC750A299D01D600D9866E /* ScaleButtonStyle.swift in Sources */,
 				17AC74E9299D00C100D9866E /* ConvertaApp.swift in Sources */,
 				17BDF10629E2DF1100E4B6C5 /* Date+Ext.swift in Sources */,
@@ -819,6 +839,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -881,6 +902,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1108,6 +1130,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		17C555A72A3F4A7B0006A50E /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1115,6 +1145,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 178AB18B29D82149004ACBAC /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
 			productName = ActivityIndicatorView;
+		};
+		17C555A82A3F4A7B0006A50E /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17C555A72A3F4A7B0006A50E /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 

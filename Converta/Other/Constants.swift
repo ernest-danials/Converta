@@ -146,6 +146,10 @@ enum LicenseTexts: String {
     """
 }
 
+enum ConstantStrings: String {
+    case shareBaseText = "The following result was converted by Converta, on "
+}
+
 enum CurrencyCode: String, AppStorageConvertible, CaseIterable {
     case UnitedArabEmiratesDirham = "AED"
     case AfghanAfghani = "AFN"

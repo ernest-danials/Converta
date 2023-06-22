@@ -43,7 +43,7 @@ struct BannerView<Content>: View where Content: View {
                 HapticManager.shared.impact(style: hapticStyle)
             } label: {
                 Text(closeButtonText)
-                    .customFont(size: 20, weight: .semibold, design: .rounded)
+                    .customFont(size: 20, weight: .semibold)
                     .foregroundColor(.white)
                     .padding()
                     .alignView(to: .center)

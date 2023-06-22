@@ -10,10 +10,18 @@ import SwiftUI
 struct CryptoCurrencyView: View {
     @EnvironmentObject var viewModel: ViewModel
     let subViewModel: CryptoCurrencyViewModel
+    @State private var hasSeenAd: Bool = false
     var body: some View {
         NavigationStack {
             ScrollView {
                 convertingFromView
+                
+                // Test unitID: ca-app-pub-3940256099942544/2934735716
+                // Real unitID: ca-app-pub-6914406630651088/2467234598
+                BannerAd(unitID: "ca-app-pub-6914406630651088/2467234598")
+                    .setBannerType(to: .banner)
+                    .background(ProgressView())
+                    .padding(.bottom)
                 
                 if subViewModel.isLoading || subViewModel.currentAPIResponse == nil {
                     VStack(spacing: 5) {
@@ -79,6 +87,40 @@ struct CryptoCurrencyView: View {
                 }
             }.navigationTitle("Crypto Currency")
         }
+        .overlay {
+            if !hasSeenAd {
+                VStack(spacing: 30) {
+                    Spacer()
+                    
+                    Text("This ad helps us \nkeep the service free")
+                        .customFont(size: 23, weight: .bold)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom)
+                    
+                    // Test unitID: ca-app-pub-3940256099942544/2934735716
+                    // Real unitID: ca-app-pub-6914406630651088/5861337080
+                    BannerAd(unitID: "ca-app-pub-6914406630651088/5861337080")
+                        .setBannerType(to: .rectangle).padding(.bottom)
+                        .background { ProgressView("Loading") }
+                    
+                    Spacer()
+                    
+                    Button {
+                        withAnimation(.spring()) { self.hasSeenAd = true }
+                        HapticManager.shared.impact(style: .soft)
+                    } label: {
+                        Text("Continue")
+                            .customFont(size: 20, weight: .semibold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .alignView(to: .center)
+                            .background(Color.brandPurple3.gradient)
+                            .cornerRadius(20)
+                            .padding(.horizontal)
+                    }.scaleButtonStyle().padding(.bottom)
+                }.alignView(to: .center).alignViewVertically(to: .center).background(Material.ultraThin)
+            }
+        }
         .onChange(of: subViewModel.hasErrorOccured) { newValue in
             withAnimation {
                 viewModel.hasErrorOccured = newValue
@@ -99,16 +141,16 @@ struct CryptoCurrencyView: View {
             } label: {
                 HStack {
                     Text(countryFlag(countryCode: String(subViewModel.baseCurrency.rawValue.dropLast(1))))
-                        .customFont(size: 50, weight: .bold, design: .rounded)
+                        .customFont(size: 50, weight: .bold)
                     
                     HStack(spacing: 5) {
                         let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.decimalDigits
                         
                         Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", subViewModel.baseAmount))
-                            .customFont(size: 23, weight: .bold, design: .rounded)
+                            .customFont(size: 23, weight: .bold)
                         
                         Text(viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.code ?? "")
-                            .customFont(size: 23, weight: .bold, design: .rounded)
+                            .customFont(size: 23, weight: .bold)
                     }.foregroundColor(.primary)
                 }
                 .alignView(to: .leading)

@@ -50,7 +50,10 @@ struct LibraryView: View {
                     if !items.isEmpty {
                         // Test unitID: ca-app-pub-3940256099942544/2934735716
                         // Real unitID: ca-app-pub-6914406630651088/4608992835
-                        BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716").setBannerType(to: .banner).padding(.bottom)
+                        BannerAd(unitID: "ca-app-pub-6914406630651088/4608992835")
+                            .setBannerType(to: .banner)
+                            .background(ProgressView())
+                            .padding(.bottom)
                     }
                     
                     LazyVGrid(columns: [.init(.adaptive(minimum: 400))], spacing: horizontalSizeClass == .compact ? 10 : 30) {

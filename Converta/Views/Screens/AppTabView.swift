@@ -71,9 +71,7 @@ struct AppTabView: View {
                     .transition(.opacity)
             }
             
-            if viewModel.isShowingCurrencyDetailView {
-                currencyDetailView
-            }
+            if viewModel.isShowingCurrencyDetailView { currencyDetailView }
         }.ignoresSafeArea()
     }
     
@@ -85,10 +83,198 @@ struct AppTabView: View {
                     .transition(.opacity)
             }
             
-            if viewModel.isShowingCurrencyDetailViewOnHistorical {
-                historicalCurrencyDetailView
-            }
+            if viewModel.isShowingCurrencyDetailViewOnHistorical { historicalCurrencyDetailView }
         }.ignoresSafeArea()
+    }
+    
+    var currencyDetailView: some View {
+        ZStack {
+            let baseCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? ""]??.decimalDigits
+            let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? ""]??.name
+            let baseCurrencyCode = viewModel.baseCurrency
+            let baseAmount = viewModel.baseAmount
+            let selectedCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]??.decimalDigits
+            let selectedCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]??.name
+            let selectedCurrencyValue = (viewModel.currentAPIResponse_Latest?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]?.value ?? 1.00)
+            let shareItem = "\(countryFlag(countryCode: String(baseCurrencyCode?.rawValue.dropLast() ?? "US"))) " + String(format: "%.\(baseCurrencyDecimalDigit ?? 2)f", baseAmount) + " " + (baseCurrencyCode?.rawValue ?? "USD") + " → " + countryFlag(countryCode: String(viewModel.selectedCurrencyForDetail?.rawValue.dropLast() ?? "US")) + " " + String(format: "%.\(selectedCurrencyDecimalDigit ?? 2)f", (baseAmount * CGFloat(selectedCurrencyValue))) + " " + (viewModel.selectedCurrencyForDetail?.rawValue ?? "USD")
+            
+            ZStack(alignment: .bottomTrailing) {
+                VStack {
+                    VStack {
+                        Text(baseCurrencyName ?? "")
+                            .customFont(size: 18, weight: .semibold)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                        
+                        HStack {
+                            Text(countryFlag(countryCode: String(baseCurrencyCode?.rawValue.dropLast() ?? "US")))
+                                .customFont(size: 57)
+                            
+                            Text(String(format: "%.\(baseCurrencyDecimalDigit ?? 2)f", baseAmount) + " " + (baseCurrencyCode?.rawValue ?? "USD"))
+                                .customFont(size: 45, weight: .bold)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.4)
+                        }
+                    }
+                    
+                    Image(systemName: "arrow.down.app.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 70, height: 70)
+                        .foregroundColor(.brandPurple3)
+                        .padding(.bottom).padding(.bottom)
+                    
+                    VStack {
+                        Text(selectedCurrencyName ?? "")
+                            .customFont(size: 18, weight: .semibold)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                        
+                        HStack {
+                            Text(countryFlag(countryCode: String(viewModel.selectedCurrencyForDetail?.rawValue.dropLast() ?? "US")))
+                                .customFont(size: 57)
+                            
+                            Text(String(format: "%.\(selectedCurrencyDecimalDigit ?? 2)f", (baseAmount * CGFloat(selectedCurrencyValue))) + " " + (viewModel.selectedCurrencyForDetail?.rawValue ?? "USD"))
+                                .customFont(size: 45, weight: .bold)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.4)
+                        }
+                    }
+                }
+                .alignView(to: .center)
+                .frame(maxWidth: 500)
+                .padding(40)
+                .padding(.bottom, 30)
+                .background(Material.regular)
+                .cornerRadius(15)
+                .padding(.horizontal)
+                .overlay(alignment: .topTrailing) {
+                    Button {
+                        viewModel.hideCurrencyDetail()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 26, height: 26)
+                            .foregroundColor(.brandPurple3)
+                    }
+                    .scaleButtonStyle()
+                    .padding()
+                    .padding(.trailing, 15)
+                }
+                
+                ShareLink(item: ConstantStrings.shareBaseText.rawValue + Date.now.homeInfoDisplay + ".\n\n" + shareItem) {
+                    HStack {
+                        Image(systemName: "square.and.arrow.up")
+                            .fontWeight(.semibold)
+                        
+                        Text("Share")
+                            .customFont(size: 18, weight: .semibold)
+                    }
+                    .foregroundStyle(.white)
+                    .padding()
+                    .background(Color.brandPurple4)
+                    .cornerRadius(15, corners: [.bottomRight, .topLeft])
+                }
+                .scaleButtonStyle(scaleAmount: 1.0, opacityAmount: 0.75)
+                .padding(.trailing)
+            }
+        }.transition(.opacity.combined(with: .offset(y: 40)))
+    }
+    
+    var historicalCurrencyDetailView: some View {
+        ZStack {
+            let baseCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[historicalRatesViewModel.baseCurrency.rawValue]??.decimalDigits
+            let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[historicalRatesViewModel.baseCurrency.rawValue]??.name
+            let baseCurrencyCode = historicalRatesViewModel.baseCurrency
+            let baseAmount = historicalRatesViewModel.baseAmount
+            let selectedCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]??.decimalDigits
+            let selectedCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]??.name
+            let selectedCurrencyValue = (historicalRatesViewModel.currentAPIResponse?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]?.value ?? 1.00)
+            let shareItem = "\(countryFlag(countryCode: String(baseCurrencyCode.rawValue.dropLast()))) " + String(format: "%.\(baseCurrencyDecimalDigit ?? 2)f", baseAmount) + " " + (baseCurrencyCode.rawValue) + " → " + countryFlag(countryCode: String(viewModel.selectedCurrencyForDetailOnHistorical?.rawValue.dropLast() ?? "US")) + " " + String(format: "%.\(selectedCurrencyDecimalDigit ?? 2)f", (baseAmount * CGFloat(selectedCurrencyValue))) + " " + (viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? "USD")
+            
+            ZStack(alignment: .bottomTrailing) {
+                VStack {
+                    VStack {
+                        Text(baseCurrencyName ?? "")
+                            .customFont(size: 18, weight: .semibold)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                        
+                        HStack {
+                            Text(countryFlag(countryCode: String(baseCurrencyCode.rawValue.dropLast())))
+                                .customFont(size: 57)
+                            
+                            Text(String(format: "%.\(baseCurrencyDecimalDigit ?? 2)f", baseAmount) + " " + (baseCurrencyCode.rawValue))
+                                .customFont(size: 45, weight: .bold)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.4)
+                        }
+                    }
+                    
+                    Image(systemName: "arrow.down.app.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 70, height: 70)
+                        .foregroundColor(.brandPurple3)
+                        .padding(.bottom).padding(.bottom)
+                    
+                    VStack {
+                        Text(selectedCurrencyName ?? "")
+                            .customFont(size: 18, weight: .semibold)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                        
+                        HStack {
+                            Text(countryFlag(countryCode: String(viewModel.selectedCurrencyForDetailOnHistorical?.rawValue.dropLast() ?? "US")))
+                                .customFont(size: 57)
+                            
+                            Text(String(format: "%.\(selectedCurrencyDecimalDigit ?? 2)f", (baseAmount * CGFloat(selectedCurrencyValue))) + " " + (viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? "USD"))
+                                .customFont(size: 45, weight: .bold)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.4)
+                        }
+                    }
+                }
+                .alignView(to: .center)
+                .frame(maxWidth: 500)
+                .padding(40)
+                .padding(.bottom, 30)
+                .background(Material.regular)
+                .cornerRadius(15)
+                .padding(.horizontal)
+                .overlay(alignment: .topTrailing) {
+                    Button {
+                        viewModel.hideCurrencyDetailOnHistorical()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 26, height: 26)
+                            .foregroundColor(.brandPurple3)
+                    }
+                    .scaleButtonStyle(opacityAmount: 1.0)
+                    .padding()
+                    .padding(.trailing, 15)
+                }
+                
+                ShareLink(item: ConstantStrings.shareBaseText.rawValue.dropLast(5) + ".\n\n" + shareItem + "\n\n" + "This result used currency data from \(historicalRatesViewModel.date.formatted(date: .abbreviated, time: .omitted))") {
+                    HStack {
+                        Image(systemName: "square.and.arrow.up")
+                            .fontWeight(.semibold)
+                        
+                        Text("Share")
+                            .customFont(size: 18, weight: .semibold)
+                    }
+                    .foregroundStyle(.white)
+                    .padding()
+                    .background(Color.brandPurple4)
+                    .cornerRadius(15, corners: [.bottomRight, .topLeft])
+                }
+                .scaleButtonStyle(scaleAmount: 1.0, opacityAmount: 0.75)
+                .padding(.trailing)
+            }
+        }.transition(.opacity.combined(with: .offset(y: 40)))
     }
     
     var ValueZeroLabel: some View {
@@ -103,146 +289,6 @@ struct AppTabView: View {
             .frame(maxHeight: 100)
             .minimumScaleFactor(0.5)
             .transition(.opacity.combined(with: .offset(y: 10)))
-    }
-    
-    var currencyDetailView: some View {
-        ZStack {
-            let baseCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? ""]??.decimalDigits
-            let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? ""]??.name
-            let baseCurrencyCode = viewModel.baseCurrency
-            let baseAmount = viewModel.baseAmount
-            let selectedCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]??.decimalDigits
-            let selectedCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]??.name
-            let selectedCurrencyValue = (viewModel.currentAPIResponse_Latest?.data[viewModel.selectedCurrencyForDetail?.rawValue ?? ""]?.value ?? 1.00)
-            
-            VStack {
-                VStack {
-                    Text(baseCurrencyName ?? "")
-                        .customFont(size: 18, weight: .semibold)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                    
-                    HStack {
-                        Text(countryFlag(countryCode: String(baseCurrencyCode?.rawValue.dropLast() ?? "US")))
-                            .customFont(size: 57)
-                        
-                        Text(String(format: "%.\(baseCurrencyDecimalDigit ?? 2)f", baseAmount) + " " + (baseCurrencyCode?.rawValue ?? "USD"))
-                            .customFont(size: 45, weight: .bold)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.4)
-                    }
-                }
-                
-                Image(systemName: "arrow.down.app.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 70, height: 70)
-                    .foregroundColor(.brandPurple3)
-                    .padding(.bottom).padding(.bottom)
-                
-                VStack {
-                    Text(selectedCurrencyName ?? "")
-                        .customFont(size: 18, weight: .semibold)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                    
-                    HStack {
-                        Text(countryFlag(countryCode: String(viewModel.selectedCurrencyForDetail?.rawValue.dropLast() ?? "US")))
-                            .customFont(size: 57)
-                        
-                        Text(String(format: "%.\(selectedCurrencyDecimalDigit ?? 2)f", (baseAmount * CGFloat(selectedCurrencyValue))) + " " + (viewModel.selectedCurrencyForDetail?.rawValue ?? "USD"))
-                            .customFont(size: 45, weight: .bold)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.4)
-                    }
-                }
-            }
-            .alignView(to: .center).frame(maxWidth: 500).padding(40).background(Material.regular).cornerRadius(15).padding(.horizontal)
-            .overlay(alignment: .topTrailing) {
-                Button {
-                    viewModel.hideCurrencyDetail()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 26, height: 26)
-                        .foregroundColor(.brandPurple3)
-                }
-                .scaleButtonStyle(opacityAmount: 1.0)
-                .padding()
-                .padding(.trailing, 15)
-            }
-        }.transition(.opacity.combined(with: .offset(y: 40)))
-    }
-    
-    var historicalCurrencyDetailView: some View {
-        ZStack {
-            let baseCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[historicalRatesViewModel.baseCurrency.rawValue]??.decimalDigits
-            let baseCurrencyName = viewModel.currentAPIResponse_Currencies?.data[historicalRatesViewModel.baseCurrency.rawValue]??.name
-            let baseCurrencyCode = historicalRatesViewModel.baseCurrency
-            let baseAmount = historicalRatesViewModel.baseAmount
-            let selectedCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]??.decimalDigits
-            let selectedCurrencyName = viewModel.currentAPIResponse_Currencies?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]??.name
-            let selectedCurrencyValue = (historicalRatesViewModel.currentAPIResponse?.data[viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? ""]?.value ?? 1.00)
-            
-            VStack {
-                VStack {
-                    Text(baseCurrencyName ?? "")
-                        .customFont(size: 18, weight: .semibold)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                    
-                    HStack {
-                        Text(countryFlag(countryCode: String(baseCurrencyCode.rawValue.dropLast())))
-                            .customFont(size: 57)
-                        
-                        Text(String(format: "%.\(baseCurrencyDecimalDigit ?? 2)f", baseAmount) + " " + (baseCurrencyCode.rawValue))
-                            .customFont(size: 45, weight: .bold)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.4)
-                    }
-                }
-                
-                Image(systemName: "arrow.down.app.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 70, height: 70)
-                    .foregroundColor(.brandPurple3)
-                    .padding(.bottom).padding(.bottom)
-                
-                VStack {
-                    Text(selectedCurrencyName ?? "")
-                        .customFont(size: 18, weight: .semibold)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                    
-                    HStack {
-                        Text(countryFlag(countryCode: String(viewModel.selectedCurrencyForDetailOnHistorical?.rawValue.dropLast() ?? "US")))
-                            .customFont(size: 57)
-                        
-                        Text(String(format: "%.\(selectedCurrencyDecimalDigit ?? 2)f", (baseAmount * CGFloat(selectedCurrencyValue))) + " " + (viewModel.selectedCurrencyForDetailOnHistorical?.rawValue ?? "USD"))
-                            .customFont(size: 45, weight: .bold)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.4)
-                    }
-                }
-            }
-            .alignView(to: .center).frame(maxWidth: 500).padding(40).background(Material.regular).cornerRadius(15).padding(.horizontal)
-            .overlay(alignment: .topTrailing) {
-                Button {
-                    viewModel.hideCurrencyDetailOnHistorical()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 26, height: 26)
-                        .foregroundColor(.brandPurple3)
-                }
-                .scaleButtonStyle(opacityAmount: 1.0)
-                .padding()
-                .padding(.trailing, 15)
-            }
-        }.transition(.opacity.combined(with: .offset(y: 40)))
     }
     
     func dismissHomeEditBaseCurrency() {

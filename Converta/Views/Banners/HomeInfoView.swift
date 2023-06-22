@@ -20,7 +20,7 @@ struct HomeInfoView: View {
                 .customFont(size: 20, weight: .semibold)
                 .padding(.top)
             
-            Text("These currency informations were updated at \(viewModel.currentAPIResponse_Latest?.meta.lastUpdatedAt.homeInfoDisplay ?? Date.now.homeInfoDisplay)")
+            Text("These currency informations were updated on \(viewModel.currentAPIResponse_Latest?.meta.lastUpdatedAt.homeInfoDisplay ?? Date.now.homeInfoDisplay)")
                 .multilineTextAlignment(.center)
         }.padding(.horizontal)
     }

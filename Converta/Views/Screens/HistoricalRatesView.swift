@@ -79,7 +79,10 @@ struct HistoricalRatesView: View {
                         
                         // Test unitID: ca-app-pub-3940256099942544/2934735716
                         // Real unitID: ca-app-pub-6914406630651088/1428295725
-                        BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716").setBannerType(to: .banner).padding(.bottom)
+                        BannerAd(unitID: "ca-app-pub-6914406630651088/1428295725")
+                            .setBannerType(to: .banner)
+                            .background(ProgressView())
+                            .padding(.bottom)
                         
                         allCurrenciesView.padding(.bottom)
                     } else {
@@ -122,7 +125,8 @@ struct HistoricalRatesView: View {
                     
                     // Test unitID: ca-app-pub-3940256099942544/2934735716
                     // Real unitID: ca-app-pub-6914406630651088/4469392035
-                    BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716").setBannerType(to: .rectangle).padding(.bottom)
+                    BannerAd(unitID: "ca-app-pub-6914406630651088/4469392035")
+                        .setBannerType(to: .rectangle).padding(.bottom)
                         .background { ProgressView("Loading") }
                     
                     Spacer()
@@ -132,7 +136,7 @@ struct HistoricalRatesView: View {
                         HapticManager.shared.impact(style: .soft)
                     } label: {
                         Text("Continue")
-                            .customFont(size: 20, weight: .semibold, design: .rounded)
+                            .customFont(size: 20, weight: .semibold)
                             .foregroundColor(.white)
                             .padding()
                             .alignView(to: .center)
@@ -146,6 +150,7 @@ struct HistoricalRatesView: View {
         .onChange(of: self.date) { newValue in
             if !viewModel.isShowingEditHistoricalRateBaseCurrencyView {
                 HapticManager.shared.impact(style: .soft)
+                subViewModel.date = newValue
                 withAnimation { subViewModel.currentAPIResponse = nil }
             }
         }
@@ -174,16 +179,16 @@ struct HistoricalRatesView: View {
             } label: {
                 HStack {
                     Text(countryFlag(countryCode: String(subViewModel.baseCurrency.rawValue.dropLast(1))))
-                        .customFont(size: 50, weight: .bold, design: .rounded)
+                        .customFont(size: 50, weight: .bold)
                     
                     HStack(spacing: 5) {
                         let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.decimalDigits
                         
                         Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", subViewModel.baseAmount))
-                            .customFont(size: 23, weight: .bold, design: .rounded)
+                            .customFont(size: 23, weight: .bold)
                         
                         Text(viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.code ?? "")
-                            .customFont(size: 23, weight: .bold, design: .rounded)
+                            .customFont(size: 23, weight: .bold)
                     }.foregroundColor(.primary)
                 }
                 .alignView(to: .leading)
@@ -226,16 +231,16 @@ struct HistoricalRatesView: View {
                     
                     HStack {
                         Text(countryFlag(countryCode: String(subViewModel.baseCurrency.rawValue.dropLast(1))))
-                            .customFont(size: 40, weight: .bold, design: .rounded)
+                            .customFont(size: 40, weight: .bold)
                         
                         HStack(spacing: 5) {
                             let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.decimalDigits
                             
                             Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", subViewModel.baseAmount))
-                                .customFont(size: 20, weight: .bold, design: .rounded)
+                                .customFont(size: 20, weight: .bold)
                             
                             Text(viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.code ?? "")
-                                .customFont(size: 20, weight: .bold, design: .rounded)
+                                .customFont(size: 20, weight: .bold)
                         }.foregroundColor(.primary)
                     }
                 }.padding(.top, 5)
@@ -371,16 +376,16 @@ struct HistoricalRatesView: View {
                     
                     HStack {
                         Text(countryFlag(countryCode: String(subViewModel.baseCurrency.rawValue.dropLast(1))))
-                            .customFont(size: 40, weight: .bold, design: .rounded)
+                            .customFont(size: 40, weight: .bold)
                         
                         HStack(spacing: 5) {
                             let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.decimalDigits
                             
                             Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", subViewModel.baseAmount))
-                                .customFont(size: 20, weight: .bold, design: .rounded)
+                                .customFont(size: 20, weight: .bold)
                             
                             Text(viewModel.currentAPIResponse_Currencies?.data[subViewModel.baseCurrency.rawValue]??.code ?? "")
-                                .customFont(size: 20, weight: .bold, design: .rounded)
+                                .customFont(size: 20, weight: .bold)
                         }.foregroundColor(.primary)
                     }
                 }.padding(.top, 5)
@@ -461,6 +466,8 @@ final class HistoricalRatesViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     @Published var hasErrorOccured: Bool = false
+    
+    @Published var date: Date = .init().twoDaysBefore
     
     func getHistoricalRate(date: Date) {
         if hasErrorOccured {

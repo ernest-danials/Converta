@@ -19,7 +19,7 @@ struct ErrorOccuredView: View {
                 .foregroundColor(.brandWhite)
             
             Text("Error")
-                .customFont(size: 35, weight: .heavy, design: .rounded)
+                .customFont(size: 35, weight: .heavy)
                 .foregroundColor(.brandWhite)
             
             Text("Sorry, an error has occured\nwhile loading the currency data.")

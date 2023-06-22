@@ -232,14 +232,14 @@ struct EditHistoricalViewBaseCurrencyView: View {
                                     
                                     if currencyViewStyle == .Name {
                                         Text(currency??.name ?? "US Dollar")
-                                            .customFont(size: 28, weight: .semibold, design: .rounded)
+                                            .customFont(size: 28, weight: .semibold)
                                             .multilineTextAlignment(.leading)
                                             .foregroundColor(.primary)
                                             .lineLimit(1)
                                             .minimumScaleFactor(0.3)
                                     } else {
                                         Text(currency??.code ?? "USD")
-                                            .customFont(size: 28, weight: .semibold, design: .rounded)
+                                            .customFont(size: 28, weight: .semibold)
                                             .foregroundColor(.primary)
                                     }
                                     
@@ -281,14 +281,14 @@ struct EditHistoricalViewBaseCurrencyView: View {
                                 
                                 if currencyViewStyle == .Name {
                                     Text(currency??.name ?? "US Dollar")
-                                        .customFont(size: 28, weight: .semibold, design: .rounded)
+                                        .customFont(size: 28, weight: .semibold)
                                         .multilineTextAlignment(.leading)
                                         .foregroundColor(.primary)
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.3)
                                 } else {
                                     Text(currency??.code ?? "USD")
-                                        .customFont(size: 28, weight: .semibold, design: .rounded)
+                                        .customFont(size: 28, weight: .semibold)
                                         .foregroundColor(.primary)
                                 }
                                 

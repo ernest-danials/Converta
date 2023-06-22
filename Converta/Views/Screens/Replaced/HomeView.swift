@@ -49,17 +49,17 @@ struct HomeView: View {
     var header: some View {
         VStack(alignment: .leading) {
             Text("Welcome to \nConverta, Ernest.")
-                .customFont(size: 25, weight: .heavy, design: .rounded)
+                .customFont(size: 25, weight: .heavy)
                 .foregroundColor(.white)
             
             if viewModel.currentAPIResponse_Latest != nil {
                 Text("These Informations were updated at \((viewModel.currentAPIResponse_Latest?.meta.lastUpdatedAt.formatted(date: .numeric, time: .shortened))!)")
-                    .customFont(size: 17, weight: .semibold, design: .rounded)
+                    .customFont(size: 17, weight: .semibold)
                     .foregroundColor(.brandWhite)
                     .opacity(0.7)
             } else {
                 Text("Loading Data...")
-                    .customFont(size: 17, weight: .semibold, design: .rounded)
+                    .customFont(size: 17, weight: .semibold)
                     .foregroundColor(.brandWhite)
                     .opacity(0.7)
             }
@@ -69,7 +69,7 @@ struct HomeView: View {
     var baseCurrencyView: some View {
         VStack(alignment: .leading) {
             Text("Converting From")
-                .customFont(size: 20, weight: .bold, design: .rounded)
+                .customFont(size: 20, weight: .bold)
                 .foregroundColor(.white)
             
             Button {
@@ -78,16 +78,16 @@ struct HomeView: View {
             } label: {
                 HStack {
                     Text(countryFlag(countryCode: String(viewModel.baseCurrency?.rawValue.dropLast(1) ?? "US")))
-                        .customFont(size: 50, weight: .bold, design: .rounded)
+                        .customFont(size: 50, weight: .bold)
                     
                     HStack(spacing: 5) {
                         let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.decimalDigits
                         
                         Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", viewModel.baseAmount))
-                            .customFont(size: 23, weight: .bold, design: .rounded)
+                            .customFont(size: 23, weight: .bold)
                         
                         Text(viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.code ?? "")
-                            .customFont(size: 23, weight: .bold, design: .rounded)
+                            .customFont(size: 23, weight: .bold)
                     }.foregroundColor(.primary)
                 }
                 .alignView(to: .leading)
@@ -110,7 +110,7 @@ struct HomeView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Your Favourites")
-                    .customFont(size: 20, weight: .bold, design: .rounded)
+                    .customFont(size: 20, weight: .bold)
                     .foregroundColor(.brandWhite)
                 
                 Spacer()
@@ -127,7 +127,7 @@ struct HomeView: View {
                 if viewModel.favoriteCurrencies.isEmpty {
                     VStack {
                         Text("You don't have favourite currencies yet.")
-                            .customFont(size: 20, weight: .semibold, design: .rounded)
+                            .customFont(size: 20, weight: .semibold)
                             .padding()
                             .multilineTextAlignment(.center)
                             .foregroundColor(.secondary)
@@ -149,7 +149,7 @@ struct HomeView: View {
                                 .foregroundColor(.secondary)
                             
                             Text(countryFlag(countryCode: String(viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]??.code.dropLast(1) ?? "US")))
-                                .customFont(size: 30, weight: .bold, design: .rounded)
+                                .customFont(size: 30, weight: .bold)
                             
                             Text(viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]??.name ?? "Loading Data...")
                                 .customFont(size: 19, weight: .semibold)
@@ -163,10 +163,10 @@ struct HomeView: View {
                             let currentCurrencyDecimalDigit = viewModel.currentAPIResponse_Currencies?.data[viewModel.baseCurrency?.rawValue ?? "USD"]??.decimalDigits
                             
                             Text(countryFlag(countryCode: String(viewModel.baseCurrency?.rawValue.dropLast(1) ?? "US")))
-                                .customFont(size: 35, weight: .bold, design: .rounded)
+                                .customFont(size: 35, weight: .bold)
                             
                             Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", viewModel.baseAmount))
-                                .customFont(size: 22, weight: .semibold, design: .rounded)
+                                .customFont(size: 22, weight: .semibold)
                             
                             Text(viewModel.baseCurrency?.rawValue ?? "")
                                 .customFont(size: 22, weight: .semibold)
@@ -184,10 +184,10 @@ struct HomeView: View {
                                 let currencyValue = (viewModel.currentAPIResponse_Latest?.data[code?.rawValue ?? "USD"]?.value ?? 1.00)
                                 
                                 Text(countryFlag(countryCode: String(viewModel.currentAPIResponse_Currencies?.data[code?.rawValue ?? "USD"]??.code.dropLast(1) ?? "US")))
-                                    .customFont(size: 40, weight: .bold, design: .rounded)
+                                    .customFont(size: 40, weight: .bold)
                                 
                                 Text(String(format: "%.\(destinationCurrencyDecimalDigit ?? 2)f", (viewModel.baseAmount * CGFloat(currencyValue))))
-                                    .customFont(size: 30, weight: .semibold, design: .rounded)
+                                    .customFont(size: 30, weight: .semibold)
                                 
                                 Text(viewModel.currentAPIResponse_Latest?.data[code?.rawValue ?? "USD"]?.code ?? "")
                                     .customFont(size: 30, weight: .semibold)
@@ -216,7 +216,7 @@ struct HomeView: View {
     var allCurrenciesView: some View {
         LazyVStack(alignment: .leading) {
             Text("All Currencies")
-                .customFont(size: 20, weight: .bold, design: .rounded)
+                .customFont(size: 20, weight: .bold)
                 .foregroundColor(.primary)
                 .padding(.horizontal)
                 .alignView(to: .leading)
@@ -285,10 +285,10 @@ struct HomeView: View {
                                 .customFont(size: 25)
                             
                             Text(String(format: "%.\(currentCurrencyDecimalDigit ?? 2)f", viewModel.baseAmount))
-                                .customFont(size: 20, weight: .semibold, design: .rounded)
+                                .customFont(size: 20, weight: .semibold)
                             
                             Text((viewModel.baseAmount == 1 ? baseCurrencyName : baseCurrencyNamePlural) ?? "")
-                                .customFont(size: 20, weight: .semibold, design: .rounded)
+                                .customFont(size: 20, weight: .semibold)
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.5)
                         }.alignView(to: .leading)
@@ -304,10 +304,10 @@ struct HomeView: View {
                                 .customFont(size: 35)
                             
                             Text(String(format: "%.\(destinationCurrencyDecimalDigit ?? 2)f", (viewModel.baseAmount * CGFloat(currencyValue))))
-                                .customFont(size: 25, weight: .semibold, design: .rounded)
+                                .customFont(size: 25, weight: .semibold)
                             
                             Text(destinationCurrencyCountryCode ?? "")
-                                .customFont(size: 25, weight: .semibold, design: .rounded)
+                                .customFont(size: 25, weight: .semibold)
                         }.alignView(to: .leading)
                         
                         if (viewModel.baseAmount * CGFloat(currencyValue)).rounded(toPlaces: destinationCurrencyDecimalDigit ?? 2) < 0.01 {

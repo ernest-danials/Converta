@@ -1089,7 +1089,7 @@ struct ConvertaBetaProgramView: View {
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottomTrailing) {
-                Image(.appIconIconPreview)
+                Image("AppIcon-icon-preview")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 110, height: 110)
@@ -1116,7 +1116,7 @@ struct ConvertaBetaProgramView: View {
             if (AppConfig.appConfiguration != .TestFlight || AppConfig.appConfiguration == .Debug) {
                 Link(destination: URL(string: "https://testflight.apple.com/join/GNYu4NR2")!) {
                     Text("Sign up with TestFlight")
-                        .customFont(size: 20, weight: .semibold, design: .rounded)
+                        .customFont(size: 20, weight: .semibold)
                         .foregroundColor(.white)
                         .padding()
                         .alignView(to: .center)
@@ -1125,7 +1125,7 @@ struct ConvertaBetaProgramView: View {
                 }.scaleButtonStyle().padding([.top, .horizontal])
             } else {
                 Text("You're already signed up")
-                    .customFont(size: 20, weight: .semibold, design: .rounded)
+                    .customFont(size: 20, weight: .semibold)
                     .foregroundColor(.white)
                     .padding()
                     .alignView(to: .center)

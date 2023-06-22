@@ -36,13 +36,13 @@ struct TipJarView: View {
                             .customFont(size: 40)
                         
                         Text(Tip.name)
-                            .customFont(size: 20, weight: .medium, design: .rounded)
+                            .customFont(size: 20, weight: .medium)
                             .foregroundColor(.primary)
                         
                         Spacer()
                         
                         Text(Tip.amountInWon)
-                            .customFont(size: 18, weight: .medium, design: .rounded)
+                            .customFont(size: 18, weight: .medium)
                             .foregroundColor(.primary)
                     }.padding().background(selectedTip == tip ? Color.brandPurple4.opacity(0.6) : Color(.systemGray6)).cornerRadius(15).padding(.horizontal)
                 }
@@ -106,7 +106,7 @@ struct TipJarView: View {
                             .customFont(size: 60)
                         
                         Text("Thanks you for the tip.")
-                            .customFont(size: 20, weight: .semibold, design: .rounded)
+                            .customFont(size: 20, weight: .semibold)
                         
                         Text("I'll do my best to make Converta even better.")
                             .opacity(0.7)

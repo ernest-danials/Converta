@@ -21,6 +21,8 @@ struct LibraryCurrencyDetailView: View {
     @State private var currentAPIResponse_Latest: CurrencyAPIResponse_Latest? = nil
     @State private var isLoading: Bool = false
     
+    @State private var hasSeenAd: Bool = false
+    
     init(baseCurrency: CurrencyCode, destinationCurrency: CurrencyCode) {
         self.baseCurrency = baseCurrency
         self.destinationCurrency = destinationCurrency
@@ -80,8 +82,9 @@ struct LibraryCurrencyDetailView: View {
                         
                         ZStack {
                             if isLoading {
-                                ActivityIndicatorView(isVisible: $isLoading, type: .flickeringDots(count: 8))
-                                    .frame(width: 30, height: 30)
+                                ActivityIndicatorView(isVisible: $isLoading, type: .opacityDots(count: 3, inset: 6))
+                                    .frame(width: 30, height: 50)
+                                    .padding(.horizontal)
                             } else {
                                 ZStack {
                                     if !numberValue.isEmpty {
@@ -99,12 +102,10 @@ struct LibraryCurrencyDetailView: View {
                         Text(destinationCurrency.rawValue)
                             .customFont(size: 40, weight: .semibold)
                     }.frame(minWidth: 400)
-                    
-                    Spacer()
                 }.padding()
             }
             
-            VStack(alignment: .leading, spacing: 10) {
+            VStack {
                 let currencyValue = self.currentAPIResponse_Latest?.data[destinationCurrency.rawValue]?.value
                 
                 if ((baseAmount * CGFloat(currencyValue ?? 1.0)) < 0.01) {
@@ -133,6 +134,41 @@ struct LibraryCurrencyDetailView: View {
                 } else {
                     updateBaseAmountFromString(string: newValue)
                 }
+            }
+        }
+        .overlay {
+            if !hasSeenAd {
+                VStack(spacing: 30) {
+                    Spacer()
+                    
+                    Text("This ad helps us \nkeep the service free")
+                        .customFont(size: 23, weight: .bold)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom)
+                    
+                    // Test unitID: ca-app-pub-3940256099942544/2934735716
+                    // Real unitID: ca-app-pub-6914406630651088/1511028533
+                    BannerAd(unitID: "ca-app-pub-6914406630651088/1511028533")
+                        .setBannerType(to: .rectangle).padding(.bottom)
+                        .background { ProgressView("Loading") }
+                    
+                    Spacer()
+                    
+                    Button {
+                        withAnimation(.spring()) { self.hasSeenAd = true }
+                        HapticManager.shared.impact(style: .soft)
+                    } label: {
+                        Text("Continue")
+                            .customFont(size: 20, weight: .semibold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .alignView(to: .center)
+                            .background(Color.brandPurple3.gradient)
+                            .cornerRadius(20)
+                            .padding(.horizontal)
+                            .padding(.horizontal)
+                    }.scaleButtonStyle().padding(.bottom)
+                }.alignView(to: .center).alignViewVertically(to: .center).background(Material.ultraThin)
             }
         }
     }

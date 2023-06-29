@@ -1113,7 +1113,16 @@ struct ConvertaBetaProgramView: View {
                 .foregroundColor(.secondary)
                 .padding(.horizontal)
             
-            if (AppConfig.appConfiguration != .TestFlight || AppConfig.appConfiguration == .Debug) {
+            if AppConfig.appConfiguration == .TestFlight || AppConfig.appConfiguration == .Debug {
+                Text("You're already signed up")
+                    .customFont(size: 20, weight: .semibold)
+                    .foregroundColor(.white)
+                    .padding()
+                    .alignView(to: .center)
+                    .background(Color.secondary.gradient)
+                    .cornerRadius(20)
+                    .padding([.top, .horizontal])
+            } else {
                 Link(destination: URL(string: "https://testflight.apple.com/join/GNYu4NR2")!) {
                     Text("Sign up with TestFlight")
                         .customFont(size: 20, weight: .semibold)
@@ -1123,28 +1132,15 @@ struct ConvertaBetaProgramView: View {
                         .background(Color.brandPurple3.gradient)
                         .cornerRadius(20)
                 }.scaleButtonStyle().padding([.top, .horizontal])
-            } else {
-                Text("You're already signed up")
-                    .customFont(size: 20, weight: .semibold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .alignView(to: .center)
-                    .background(Color.secondary.gradient)
-                    .cornerRadius(20)
-                    .padding([.top, .horizontal])
             }
             
-            if (AppConfig.appConfiguration != .TestFlight || AppConfig.appConfiguration == .Debug) {
+            if AppConfig.appConfiguration == .AppStore {
                 Label("Currently, the maximum tester count is 300.", systemImage: "info.circle")
                     .font(.footnote)
                     .foregroundColor(.secondary)
             }
             
-            if (AppConfig.appConfiguration != .TestFlight || AppConfig.appConfiguration == .Debug) {
-                perksView
-                
-                whatToDoView.padding(.bottom)
-            } else {
+            if (AppConfig.appConfiguration == .TestFlight || AppConfig.appConfiguration == .Debug) {
                 whatToDoView
                     
                 VStack {
@@ -1154,6 +1150,10 @@ struct ConvertaBetaProgramView: View {
                         externalLinkListRow(text: "Join the Discord server", imageWhenLight: "Discord_Logo", imageWhenDark: "Discord_Logo")
                     }
                 }.padding(.bottom)
+            } else {
+                perksView
+                
+                whatToDoView.padding(.bottom)
             }
         }
         .navigationTitle("Converta Beta Program")

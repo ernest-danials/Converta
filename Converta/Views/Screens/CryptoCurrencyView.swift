@@ -16,12 +16,14 @@ struct CryptoCurrencyView: View {
             ScrollView {
                 convertingFromView
                 
-                // Test unitID: ca-app-pub-3940256099942544/2934735716
-                // Real unitID: ca-app-pub-6914406630651088/2467234598
-                BannerAd(unitID: "ca-app-pub-6914406630651088/2467234598")
-                    .setBannerType(to: .banner)
-                    .background(ProgressView())
-                    .padding(.bottom)
+                if AppConfig.appConfiguration != .TestFlight {
+                    // Test unitID: ca-app-pub-3940256099942544/2934735716
+                    // Real unitID: ca-app-pub-6914406630651088/2467234598
+                    BannerAd(unitID: "ca-app-pub-6914406630651088/2467234598")
+                        .setBannerType(to: .banner)
+                        .background(ProgressView())
+                        .padding(.bottom)
+                }
                 
                 if subViewModel.isLoading || subViewModel.currentAPIResponse == nil {
                     VStack(spacing: 5) {
@@ -88,37 +90,39 @@ struct CryptoCurrencyView: View {
             }.navigationTitle("Crypto Currency")
         }
         .overlay {
-            if !hasSeenAd {
-                VStack(spacing: 30) {
-                    Spacer()
-                    
-                    Text("This ad helps us \nkeep the service free")
-                        .customFont(size: 23, weight: .bold)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom)
-                    
-                    // Test unitID: ca-app-pub-3940256099942544/2934735716
-                    // Real unitID: ca-app-pub-6914406630651088/5861337080
-                    BannerAd(unitID: "ca-app-pub-6914406630651088/5861337080")
-                        .setBannerType(to: .rectangle).padding(.bottom)
-                        .background { ProgressView("Loading") }
-                    
-                    Spacer()
-                    
-                    Button {
-                        withAnimation(.spring()) { self.hasSeenAd = true }
-                        HapticManager.shared.impact(style: .soft)
-                    } label: {
-                        Text("Continue")
-                            .customFont(size: 20, weight: .semibold)
-                            .foregroundColor(.white)
-                            .padding()
-                            .alignView(to: .center)
-                            .background(Color.brandPurple3.gradient)
-                            .cornerRadius(20)
-                            .padding(.horizontal)
-                    }.scaleButtonStyle().padding(.bottom)
-                }.alignView(to: .center).alignViewVertically(to: .center).background(Material.ultraThin)
+            if AppConfig.appConfiguration != .TestFlight {
+                if !hasSeenAd {
+                    VStack(spacing: 30) {
+                        Spacer()
+                        
+                        Text("This ad helps us \nkeep the service free")
+                            .customFont(size: 23, weight: .bold)
+                            .multilineTextAlignment(.center)
+                            .padding(.bottom)
+                        
+                        // Test unitID: ca-app-pub-3940256099942544/2934735716
+                        // Real unitID: ca-app-pub-6914406630651088/5861337080
+                        BannerAd(unitID: "ca-app-pub-6914406630651088/5861337080")
+                            .setBannerType(to: .rectangle).padding(.bottom)
+                            .background { ProgressView("Loading") }
+                        
+                        Spacer()
+                        
+                        Button {
+                            withAnimation(.spring()) { self.hasSeenAd = true }
+                            HapticManager.shared.impact(style: .soft)
+                        } label: {
+                            Text("Continue")
+                                .customFont(size: 20, weight: .semibold)
+                                .foregroundColor(.white)
+                                .padding()
+                                .alignView(to: .center)
+                                .background(Color.brandPurple3.gradient)
+                                .cornerRadius(20)
+                                .padding(.horizontal)
+                        }.scaleButtonStyle().padding(.bottom)
+                    }.alignView(to: .center).alignViewVertically(to: .center).background(Material.ultraThin)
+                }
             }
         }
         .onChange(of: subViewModel.hasErrorOccured) { newValue in

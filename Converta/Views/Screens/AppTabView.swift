@@ -55,11 +55,11 @@ struct AppTabView: View {
         }
         .preferredColorScheme(viewModel.colorScheme == "Device Settings" ? nil : AppearanceMode(rawValue: viewModel.colorScheme)?.getColorScheme())
         .overlay { if !viewModel.hasSeenOnboarding || viewModel.isShowingOnboarding { OnBoardingView() } }
-        .task {
-            viewModel.initiateFunctions(getData: true)
-            cryptoCurrencyViewModel.getCryptoCurrencyData()
-        }
-        .overlay { if viewModel.isLoading() { LoadingView() } }
+//        .task {
+//            viewModel.initiateFunctions(getData: true)
+//            cryptoCurrencyViewModel.getCryptoCurrencyData()
+//        }
+//        .overlay { if viewModel.isLoading() { LoadingView() } }
         .tint(viewModel.isLoading() ? .secondary : .brandPurple3)
     }
     

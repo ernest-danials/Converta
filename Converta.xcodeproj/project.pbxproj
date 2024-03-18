@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1700E26E29B9FD5C00784C5C /* LibraryCurrencyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700E26D29B9FD5C00784C5C /* LibraryCurrencyDetailView.swift */; };
 		1715356329A9E5A500E2CE9F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1715356229A9E5A500E2CE9F /* Storage.swift */; };
+		172A5D8D2A82418100941048 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A5D8C2A82418100941048 /* TripView.swift */; };
+		172A5D8F2A82480A00941048 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A5D8E2A82480A00941048 /* Trip.swift */; };
 		172AD7BD29D321E5006958DC /* LibraryItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172AD7BC29D321E5006958DC /* LibraryItemDetailView.swift */; };
 		172C7C8C29B4B03E0040A435 /* NewHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C7C8B29B4B03E0040A435 /* NewHomeScreen.swift */; };
 		172C7C8F29B4D5B40040A435 /* CurrencyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C7C8E29B4D5B40040A435 /* CurrencyCard.swift */; };
@@ -117,6 +119,8 @@
 /* Begin PBXFileReference section */
 		1700E26D29B9FD5C00784C5C /* LibraryCurrencyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCurrencyDetailView.swift; sourceTree = "<group>"; };
 		1715356229A9E5A500E2CE9F /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		172A5D8C2A82418100941048 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
+		172A5D8E2A82480A00941048 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		172AD7BC29D321E5006958DC /* LibraryItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemDetailView.swift; sourceTree = "<group>"; };
 		172C7C8B29B4B03E0040A435 /* NewHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeScreen.swift; sourceTree = "<group>"; };
 		172C7C8E29B4D5B40040A435 /* CurrencyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCard.swift; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 				17BDF10329E2D32000E4B6C5 /* HistoricalRatesView.swift */,
 				1764579B29E4277200B61D2F /* CryptoCurrencyView.swift */,
 				176D394D2A23684C00B4D195 /* CurrencyCodesView.swift */,
+				172A5D8C2A82418100941048 /* TripView.swift */,
 				17DFDDC329BC89E700609BC9 /* SettingsView.swift */,
 				17A58E4729AA068C002908B1 /* EditFavoritesView.swift */,
 				177F713229BE1851009AE0D4 /* TipJarView.swift */,
@@ -351,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				17AC74FE299D017900D9866E /* ViewModel.swift */,
+				172A5D8E2A82480A00941048 /* Trip.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -665,7 +671,9 @@
 			files = (
 				17AC7505299D01AD00D9866E /* BannerView.swift in Sources */,
 				17AC7501299D018000D9866E /* View+Ext.swift in Sources */,
+				172A5D8F2A82480A00941048 /* Trip.swift in Sources */,
 				177620EF29B749AF00996A15 /* PersistenceController.swift in Sources */,
+				172A5D8D2A82418100941048 /* TripView.swift in Sources */,
 				17C555B02A3F5D1C0006A50E /* AppConfiguration.swift in Sources */,
 				172C7C9129B4DAE40040A435 /* HomeInfoView.swift in Sources */,
 				17FD931629B74C910051F90C /* LibraryView.swift in Sources */,
@@ -930,7 +938,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Converta/Converta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "Converta/Preview\\ Content";
 				DEVELOPMENT_TEAM = VNASSVSN5W;
@@ -977,7 +985,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Converta/Converta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "Converta/Preview\\ Content";
 				DEVELOPMENT_TEAM = VNASSVSN5W;
@@ -1022,7 +1030,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Converta for Apple Watch Watch App/Converta for Apple Watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Converta for Apple Watch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = VNASSVSN5W;
 				ENABLE_PREVIEWS = YES;
@@ -1054,7 +1062,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Converta for Apple Watch Watch App/Converta for Apple Watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Converta for Apple Watch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = VNASSVSN5W;
 				ENABLE_PREVIEWS = YES;

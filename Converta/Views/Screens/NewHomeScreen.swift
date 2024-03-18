@@ -222,35 +222,6 @@ struct NewHomeScreen: View {
                 .alignView(to: .leading)
                 .padding(.horizontal).padding(.horizontal, 5)
             
-            HStack {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(searchText.isEmpty ? .primary : .accentColor)
-                    .fontWeight(searchText.isEmpty ? .regular : .semibold)
-                
-                TextField("Search with currency code", text: $searchText)
-                    .submitLabel(.search)
-                
-                if !searchText.isEmpty {
-                    Button {
-                        withAnimation {
-                            self.searchText.removeAll()
-                            HapticManager.shared.impact(style: .rigid)
-                        }
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.accentColor)
-                    }.scaleButtonStyle(scaleAmount: 0.9, opacityAmount: 1)
-                }
-            }
-            .padding(15)
-            .background {
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(Color(.systemGray5))
-            }
-            .padding(.horizontal)
-            .padding(.horizontal, 5)
-            .padding(.bottom, 3)
-            
             NavigationLink {
                 CryptoCurrencyView(subViewModel: cryptoCurrencyViewModel)
                     .task { cryptoCurrencyViewModel.getCryptoCurrencyData() }
@@ -286,6 +257,35 @@ struct NewHomeScreen: View {
                 .padding(.horizontal)
                 .padding(.horizontal, 5)
             }.scaleButtonStyle(scaleAmount: 0.95)
+            
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(searchText.isEmpty ? .primary : .accentColor)
+                    .fontWeight(searchText.isEmpty ? .regular : .semibold)
+                
+                TextField("Search with currency code", text: $searchText)
+                    .submitLabel(.search)
+                
+                if !searchText.isEmpty {
+                    Button {
+                        withAnimation {
+                            self.searchText.removeAll()
+                            HapticManager.shared.impact(style: .rigid)
+                        }
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.accentColor)
+                    }.scaleButtonStyle(scaleAmount: 0.9, opacityAmount: 1)
+                }
+            }
+            .padding(15)
+            .background {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(Color(.systemGray5))
+            }
+            .padding(.horizontal)
+            .padding(.horizontal, 5)
+            .padding(.bottom, 3)
             
             HStack {
                 VStack(alignment: .leading) {

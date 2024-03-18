@@ -20,9 +20,7 @@ struct SettingsView: View {
                     } label: {
                         listRow(text: "Edit Favourite Currencies", imageName: "star.fill")
                     }
-                }
-                
-                Section {
+                    
                     NavigationLink {
                         AppearanceView()
                             .onAppear { HapticManager.shared.impact(style: .soft) }
@@ -38,9 +36,7 @@ struct SettingsView: View {
                     } label: {
                         listRow(text: "Support", imageName: "lifepreserver.fill", backgroundColor: .indigo, iconColor: .white)
                     }
-                }
-                
-                Section {
+                    
                     NavigationLink {
                         AboutConvertaView()
                             .onAppear { HapticManager.shared.impact(style: .soft) }
